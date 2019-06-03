@@ -16,7 +16,16 @@ class Workout extends Component {
   }
 
   async componentDidMount () {
-    const response = await axios(`${apiUrl}/workouts/${this.props.match.params.id}`)
+    const response = await
+    // axios(`${apiUrl}/workouts/${this.props.match.params.id}`)
+    axios({
+      method: 'GET',
+      url: `${apiUrl}/workouts/${this.props.match.params.id}`,
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}`
+      }
+    })
+    console.log(response)
     this.setState({ workout: response.data.workout })
     // .then(res => {
     //   this.setState({ movie: res.data.movie })

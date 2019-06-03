@@ -10,11 +10,11 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 // import Calendar from './calendar/Calendar'
 import Selectable from './calendar/Selectable'
-import LogWorkout from './calendar/LogWorkout'
-import Workout from './calendar/Workout'
-import LogWorkouts from './calendar/LogWorkouts'
-import LogWorkoutEdit from './calendar/LogWorkoutEdit'
-import Countdown from './home/Countdown'
+import LogWorkout from './calendar/WorkoutCreate'
+// import Workout from './calendar/Workout'
+import LogWorkouts from './calendar/Workouts'
+// import LogWorkoutEdit from './calendar/WorkoutEdit'
+// import Countdown from './home/Countdown'
 import MyCountdown from './home/MyCountdown'
 import Alert from 'react-bootstrap/Alert'
 // const MyCalendar = props => (
@@ -61,20 +61,18 @@ class App extends Component {
             </Alert.Heading>
           </Alert>
         ))}
-        <Route exact path='/countdown' component={Countdown}/>
-        <Route exact path="/calendar" component={LogWorkouts}/>
-        <Route exact path="/create-workout" component={LogWorkout}/>
-        <Route exact path="/workouts/:id" component={Workout}/>
-        <Route exact path="/workouts/:id/edit" component={LogWorkoutEdit}/>
         <main className="container">
           <Route path='/countdown' render={() => (
             <MyCountdown setUser={this.setUser} />
           )} />
+          <AuthenticatedRoute path='/create-workout' render={() => (
+            <LogWorkout user={user} />
+          )} />
           <Route path='/calendar' render={() => (
             <Selectable setUser={this.setUser} />
           )} />
-          <Route path='/log-workout' render={() => (
-            <LogWorkout setUser={this.setUser} />
+          <AuthenticatedRoute user={user} path='/workouts' render={() => (
+            <LogWorkouts alert={this.alert} user={user} />
           )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
