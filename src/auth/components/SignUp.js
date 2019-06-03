@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 import { signUp, signIn } from '../api'
 import messages from '../messages'
 
@@ -11,7 +12,8 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
-      passwordConfirmation: ''
+      passwordConfirmation: '',
+      nickname: ''
     }
   }
 
@@ -31,47 +33,68 @@ class SignUp extends Component {
       .then(() => history.push('/'))
       .catch(error => {
         console.error(error)
-        this.setState({ email: '', password: '', passwordConfirmation: '' })
+        this.setState({ email: '', password: '', passwordConfirmation: '', nickname: '' })
         alert(messages.signUpFailure, 'danger')
       })
   }
 
   render () {
-    const { email, password, passwordConfirmation } = this.state
+    const { email, password, passwordConfirmation, nickname } = this.state
 
     return (
-      <form className='auth-form' onSubmit={this.onSignUp}>
+      <Form className='form' onSubmit={this.onSignUp}>
         <h3>Sign Up</h3>
+        <Form.Group controlId="nickname">
+          <Form.Label>Nickname</Form.Label>
+          <Form.Control
+            required
+            name="nickname"
+            value={nickname}
+            type="string"
+            placeholder="Nickname"
+            onChange={this.handleChange}
+          />
+        </Form.Group>
 
-        <label htmlFor="email">Email</label>
-        <input
-          required
-          name="email"
-          value={email}
-          type="email"
-          placeholder="Email"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          name="password"
-          value={password}
-          type="password"
-          placeholder="Password"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="passwordConfirmation">Confirm Password</label>
-        <input
-          required
-          name="passwordConfirmation"
-          value={passwordConfirmation}
-          type="password"
-          placeholder="Confirm Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+        <Form.Group controlId="email">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            required
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Enter password"
+            required
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            required
+            name="passwordConfirmation"
+            value={passwordConfirmation}
+            type="password"
+            placeholder="Confirm Password"
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+        <Button type="submit">Sign In</Button>
+        <Form.Text className="text-danger mt-3">
+          Do <strong>not</strong> use real emails or passwords. Seriously, don&rsquo;t do it!
+        </Form.Text>
+      </Form>
     )
   }
 }

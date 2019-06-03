@@ -27,9 +27,10 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>Uber, But For Taxis</h1>
+    { console.log('user', user) }
+    <h1>Log Your Limit</h1>
     <nav>
-      { user && <span>Welcome, {user.email}</span>}
+      { user && <span>Welcome, {user.nickname}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
       { alwaysOptions }
     </nav>

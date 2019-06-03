@@ -14,7 +14,9 @@ import LogWorkout from './calendar/LogWorkout'
 import Workout from './calendar/Workout'
 import LogWorkouts from './calendar/LogWorkouts'
 import LogWorkoutEdit from './calendar/LogWorkoutEdit'
-
+import Countdown from './home/Countdown'
+import MyCountdown from './home/MyCountdown'
+import Alert from 'react-bootstrap/Alert'
 // const MyCalendar = props => (
 //   <div>
 //     <BigCalendar
@@ -26,7 +28,7 @@ import LogWorkoutEdit from './calendar/LogWorkoutEdit'
 //   </div>
 // )
 // import Alert from 'react-bootstrap/Alert'
-const Alert = 'alert'
+// const Alert = 'alert'
 
 class App extends Component {
   constructor (props, context) {
@@ -59,12 +61,15 @@ class App extends Component {
             </Alert.Heading>
           </Alert>
         ))}
+        <Route exact path='/countdown' component={Countdown}/>
         <Route exact path="/calendar" component={LogWorkouts}/>
         <Route exact path="/create-workout" component={LogWorkout}/>
         <Route exact path="/workouts/:id" component={Workout}/>
         <Route exact path="/workouts/:id/edit" component={LogWorkoutEdit}/>
-
         <main className="container">
+          <Route path='/countdown' render={() => (
+            <MyCountdown setUser={this.setUser} />
+          )} />
           <Route path='/calendar' render={() => (
             <Selectable setUser={this.setUser} />
           )} />
