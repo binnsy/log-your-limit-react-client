@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Layout from '../Layout'
+// import Layout from '../Layout'
 import LogWorkoutForm from './LogWorkoutForm'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 class LogWorkoutEdit extends Component {
   constructor (props) {
@@ -26,7 +26,14 @@ class LogWorkoutEdit extends Component {
 
   async componentDidMount () {
     const response = await
-    axios(`${apiUrl}/workouts/${this.props.match.params.id}`)
+    // axios(`${apiUrl}/workouts/${this.props.match.params.id}`)
+    axios({
+      method: 'GET',
+      url: `${apiUrl}/workouts/${this.props.match.params.id}`,
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}`
+      }
+    })
     // if (response.error) {
     //   console.erroe(response.error)
     // } else {
@@ -54,6 +61,9 @@ class LogWorkoutEdit extends Component {
       await axios({
         url: `${apiUrl}/workouts/${this.props.match.params.id}`,
         method: 'PATCH',
+        headers: {
+          'Authorization': `Token token=${this.props.user.token}`
+        },
         data: {
           workout: this.state.workout
         }
@@ -72,14 +82,15 @@ class LogWorkoutEdit extends Component {
       }
 
       return (
-        <Layout>
+        <div>
           <LogWorkoutForm
             workout={workout}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
-            cancelPath={`/workkouts/${this.props.match.params.id}`}
+            cancelPath={`/workouts/${this.props.match.params.id}`}
           />
-        </Layout>
+          <Link to='/workouts'>Back to all workouts</Link>
+        </div>
       )
     }
 }

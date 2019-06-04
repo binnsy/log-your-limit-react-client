@@ -12,8 +12,7 @@ class Selectable extends React.Component {
     super(...args)
 
     this.state = {
-      events,
-      hideActors: false
+      events
     }
   }
 
@@ -32,10 +31,6 @@ class Selectable extends React.Component {
       })
     }
   }
-
-  toggleLogRun = () => this.setState(prevState => {
-    return { hideLogRun: !prevState.hideLogRun }
-  })
 
   eventStyleGetter (event, start, end, isSelected) {
     console.log(event)
@@ -79,9 +74,6 @@ class Selectable extends React.Component {
             </div>
           </div>
         </div>
-        <button onClick={this.toggleLogRun}>
-          {this.state.hideLogRun ? 'Show Log Run' : 'Hide Log Run'}
-        </button>
       </div>
     )
   }

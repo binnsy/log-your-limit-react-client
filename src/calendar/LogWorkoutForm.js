@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const LogWorkoutForm = ({ workout, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
 
-    <h3>Log Workout</h3>
+    <h3>Edit Workout</h3>
     <label>Title</label>
     <input
       required
@@ -17,14 +17,13 @@ const LogWorkoutForm = ({ workout, handleSubmit, handleChange, cancelPath }) => 
     <label>Description</label>
     <input
       type="text"
-      name="descrition"
+      name="description"
       value={workout.description}
       placeholder="description"
       onChange={handleChange}
     />
     <label>Date</label>
     <input
-      required
       type="date"
       name="date"
       value={workout.date}

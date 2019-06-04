@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 import Countdown from './Countdown'
 import { Form, FormControl, Button } from 'react-bootstrap'
+// import Quote from './MotivationalQuotes'
 
 class MyCountdown extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      date: '',
       deadline: 'August 18, 2019',
       newDeadline: ''
     }
+  }
+
+  componentDidMount () {
+    setInterval(() => {
+      this.setState({
+        curTime: new Date().toLocaleString()
+      })
+    }, 1000)
   }
 
   changeDeadline () {
@@ -17,8 +27,13 @@ class MyCountdown extends Component {
 
   render () {
     return (
-      <div className="App">
-        <div className="App-title">
+      <div className="home">
+        <div>
+        Date: {this.state.curTime}
+        </div>
+        <br>
+        </br>
+        <div className="myCountdown">
     Countdown to Ironman Mt. Tremblant{this.state.deadline}
         </div>
         <Countdown

@@ -9,12 +9,12 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 // import Calendar from './calendar/Calendar'
+// import Quote from
 import Selectable from './calendar/Selectable'
 import LogWorkout from './calendar/WorkoutCreate'
-// import Workout from './calendar/Workout'
+import Workout from './calendar/Workout'
 import LogWorkouts from './calendar/Workouts'
-// import LogWorkoutEdit from './calendar/WorkoutEdit'
-// import Countdown from './home/Countdown'
+import LogWorkoutEdit from './calendar/WorkoutEdit'
 import MyCountdown from './home/MyCountdown'
 import Alert from 'react-bootstrap/Alert'
 // const MyCalendar = props => (
@@ -62,18 +62,27 @@ class App extends Component {
           </Alert>
         ))}
         <main className="container">
-          <Route path='/countdown' render={() => (
-            <MyCountdown setUser={this.setUser} />
-          )} />
-          <AuthenticatedRoute path='/create-workout' render={() => (
-            <LogWorkout user={user} />
-          )} />
+
           <Route path='/calendar' render={() => (
             <Selectable setUser={this.setUser} />
           )} />
-          <AuthenticatedRoute user={user} path='/workouts' render={() => (
+          <Route path='/home' render={() => (
+            <MyCountdown setUser={this.setUser} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/workouts' render={() => (
             <LogWorkouts alert={this.alert} user={user} />
           )} />
+          <AuthenticatedRoute user={user} exact path='/create-workout' render={() => (
+            <LogWorkout user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/workouts/:id' render={({ match }) => (
+            <Workout match={match} alert={this.alert} user={user} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/workouts/:id/edit' render={({ match }) => (
+            <LogWorkoutEdit match={match} alert={this.alert} user={user} />
+          )} />
+
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
