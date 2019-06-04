@@ -4,8 +4,8 @@ import axios from 'axios'
 import apiUrl from '../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-import BigCalendar from 'react-big-calendar'
-import moment from 'moment'
+// import BigCalendar from 'react-big-calendar'
+// import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 // import Layout from '../Layout'
 // import LogWorkout from './calendar/WorkoutCreate'
@@ -27,38 +27,6 @@ class LogWorkouts extends Component {
     }
   }
 
-  handleSelect = ({ startDate, endDate }) => {
-    const title = window.prompt('New Event name')
-    if (title) {
-      this.setState({
-        events: [
-          ...this.state.events,
-          {
-            startDate,
-            endDate,
-            title
-          }
-        ]
-      })
-    }
-  }
-
-  eventStyleGetter (workout, startDate, endDate, isSelected) {
-    console.log(event)
-    const backgroundColor = '#' + event.hexColor
-    const style = {
-      backgroundColor: backgroundColor,
-      borderRadius: '0px',
-      opacity: 0.8,
-      color: 'black',
-      border: '0px',
-      display: 'block'
-    }
-    return {
-      style: style
-    }
-  }
-
   async componentDidMount () {
     console.log(this.props.user)
     axios({
@@ -72,12 +40,6 @@ class LogWorkouts extends Component {
     // this.setState({ workouts: response.data.workouts })
 
       .then(response => {
-        const workouts = response.data
-
-        for (let i = 0; i < workouts.length; i++) {
-          workouts[i].startDate = this.convertDate(workouts[i].startDate)
-          workouts[i].endDate = this.convertDate(workouts[i].endDate)
-        }
         this.setState({ workouts: response.data.workouts })
         console.log(response)
       })
@@ -85,8 +47,6 @@ class LogWorkouts extends Component {
   }
 
   render () {
-    const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
-
     const { workouts } = this.state
     const { user } = this.props
     console.log({ workouts })
@@ -107,20 +67,6 @@ class LogWorkouts extends Component {
             </ListGroup.Item>
           )) }
         </ListGroup>
-
-        <div style={{ height: 700 }}>
-          <BigCalendar
-            events={this.state.workouts}
-            localizer={localizer}
-            step={30}
-            defaultView='week'
-            views={['month', 'week', 'day']}
-            defaultDate={new Date()}
-            onSelectEvent={workout => alert(workout.title, workout.startDate, workout.endDate)}
-            onSelectSlot={this.handleSelect}
-            eventPropGetter={(this.eventStyleGetter)}
-          />
-        </div>
       </Fragment>
     )
   }
