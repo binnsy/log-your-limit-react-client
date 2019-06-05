@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Countdown from './Countdown'
 import { Form, Button, Col } from 'react-bootstrap'
-// import Quote from './MotivationalQuotes'
+import Quote from './MotivationalQuotes'
 import './Home.scss'
 
 class MyCountdown extends Component {
@@ -31,8 +31,9 @@ class MyCountdown extends Component {
       <Col className="text-center hi">
         <div className="home">
           <div>
-          Date: {this.state.curTime}
+          Today is:  {this.state.curTime}
           </div>
+          <Quote />
           <br>
           </br>
           <div className="myCountdown">
