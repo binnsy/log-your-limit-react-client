@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 // import { logWorkout } from '../api'
 // import messages from '../messages'
 import Form from 'react-bootstrap/Form'
@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 // import LogWorkoutForm from './LogWorkoutForm'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 
 class LogWorkout extends Component {
   constructor () {
@@ -24,10 +24,13 @@ class LogWorkout extends Component {
         endDate: '',
         distance: '',
         time: ''
-      },
-      created: false
+      }
     }
   }
+  //
+  // componentDidMount () {
+  //
+  // }
 
   handleSubmit = (event) => {
     console.log('submitted', event)
@@ -48,18 +51,16 @@ class LogWorkout extends Component {
           endDate: this.state.endDate,
           distance: this.state.distance,
           time: this.state.time
-        },
-        created: true
+        }
       }
     })
       .then(response => this.setState({
-        created: true,
         workout: response.data.workout
       }))
       .then(() => this.props.alert(`${this.state.title} has been added to your workouts!`, 'success'))
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push('/workouts'))
       .catch(() => {
-        // this.props.alert('Whoops! Failed to add your workout. Please try again.', 'danger')
+        this.props.alert('Whoops! Failed to add your workout. Please try again.', 'danger')
         this.setState({
           id: '',
           title: '',
@@ -89,20 +90,20 @@ class LogWorkout extends Component {
   })
 
   render () {
-    const { created, date, title, description, distance, time, startDate, endDate } = this.state
+    const { date, title, description, distance, time, startDate, endDate } = this.state
     // const { isSubmitted } = this.props
     // if (isSubmitted) {
     //   return <Redirect to='/workouts' />
     // }
-    if (created === true) {
-      return <Redirect
-        to={'/workouts/'} />
-    }
+    // if (createdWorkout === true) {
+    //   return <Redirect
+    //     to={'/workouts/'} />
+    // }
 
     return (
       <Form className="form" onSubmit={this.handleSubmit} >
         <h2>Create Workout</h2>
-        <Form.Group controlId="workoutTitle">
+        <Form.Group controlId="title">
           <Form.Label>Workout Title</Form.Label>
           <Form.Control
             required
@@ -113,7 +114,7 @@ class LogWorkout extends Component {
             placeholder="Enter the workout title"
           />
         </Form.Group>
-        <Form.Group controlId="workoutDescription">
+        <Form.Group controlId="description">
           <Form.Label>Workout Description</Form.Label>
           <Form.Control
             type="text"
@@ -123,7 +124,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="workoutDistance">
+        <Form.Group controlId="distance">
           <Form.Label>Workout Distance</Form.Label>
           <Form.Control
             type="string"
@@ -133,7 +134,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="workoutDate">
+        <Form.Group controlId="date">
           <Form.Label>Workout Date</Form.Label>
           <Form.Control
             required
@@ -144,7 +145,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="workoutTime">
+        <Form.Group controlId="time">
           <Form.Label>Workout time</Form.Label>
           <Form.Control
             type="string"
@@ -189,9 +190,12 @@ class LogWorkout extends Component {
         >
           Reset
         </Button>
+        <Link to='/workouts'>
+          <Button>Back to all workouts</Button>
+        </Link>
       </Form>
     )
   }
 }
 
-export default LogWorkout
+export default withRouter(LogWorkout)

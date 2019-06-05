@@ -1,72 +1,103 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const LogWorkoutForm = ({ workout, handleSubmit, handleChange, cancelPath }) => (
-  <form onSubmit={handleSubmit}>
 
-    <h3>Edit Workout</h3>
-    <label>Title</label>
-    <input
-      required
-      type="text"
-      name="title"
-      value={workout.title}
-      placeholder="title"
-      onChange={handleChange}
-    />
-    <label>Description</label>
-    <input
-      type="text"
-      name="description"
-      value={workout.description}
-      placeholder="description"
-      onChange={handleChange}
-    />
-    <label>Date</label>
-    <input
-      type="date"
-      name="date"
-      value={workout.date}
-      placeholder="YYYY-MM-DD"
-      onChange={handleChange}
-    />
-    <label>Start Date</label>
-    <input
-      type="date"
-      name="startDate"
-      value={workout.startDate}
-      placeholder="YYYY-MM-DD"
-      onChange={handleChange}
-    />
-    <label>End Date</label>
-    <input
-      type="date"
-      name="endDate"
-      value={workout.endDate}
-      placeholder="YYYY-MM-DD"
-      onChange={handleChange}
-    />
-    <label>Distance</label>
-    <input
-      type="text"
-      name="distance"
-      value={workout.distance}
-      placeholder="Distance in miles"
-      onChange={handleChange}
-    />
-    <label>Time</label>
-    <input
-      type="text"
-      name="time"
-      value={workout.time}
-      placeholder="hh:mm:ss"
-      onChange={handleChange}
-    />
-    <button type="submit">Log Workout</button>
-    <Link to={cancelPath}><button>Cancel</button>
+  <Form className="form" onSubmit={handleSubmit} >
+    <h2>Edit Workout</h2>
+    <Form.Group controlId="title">
+      <Form.Label>Workout Title</Form.Label>
+      <Form.Control
+        required
+        type="text"
+        value={workout.title}
+        name="title"
+        onChange={handleChange}
+        placeholder="Workout title"
+      />
+    </Form.Group>
+    <Form.Group controlId="description">
+      <Form.Label>Workout Description</Form.Label>
+      <Form.Control
+        type="text"
+        value={workout.description}
+        name="description"
+        placeholder="Description"
+        onChange={handleChange}
+      />
+    </Form.Group>
+    <Form.Group controlId="distance">
+      <Form.Label>Workout Distance</Form.Label>
+      <Form.Control
+        type="string"
+        value={workout.distance}
+        name="distance"
+        placeholder="Enter distance in miles"
+        onChange={handleChange}
+      />
+    </Form.Group>
+    <Form.Group controlId="date">
+      <Form.Label>Workout Date</Form.Label>
+      <Form.Control
+        required
+        type="date"
+        value={workout.date}
+        name="date"
+        placeholder="YYYY-MM-DD"
+        onChange={handleChange}
+      />
+    </Form.Group>
+    <Form.Group controlId="time">
+      <Form.Label>Workout time</Form.Label>
+      <Form.Control
+        type="string"
+        value={workout.time}
+        name="time"
+        placeholder="hh:mm:ss"
+        onChange={handleChange}
+      />
+    </Form.Group>
+    <Form.Group controlId="startDate">
+      <Form.Label>Start Date</Form.Label>
+      <Form.Control
+        type="date"
+        value={workout.startDate}
+        name="startDate"
+        placeholder="YYYY-MM-DD"
+        onChange={handleChange}
+      />
+    </Form.Group>
+    <Form.Group controlId="endDate">
+      <Form.Label>End Date</Form.Label>
+      <Form.Control
+        type="date"
+        value={workout.endDate}
+        name="endDate"
+        placeholder="YYYY-MM-DD"
+        onChange={handleChange}
+      />
+    </Form.Group>
+    <Button
+      variant="primary"
+      type="submit"
+      className="m-1"
+    >
+      Submit
+    </Button>
+    <Button
+      variant="danger"
+      type="button"
+      className="m-1"
+      onClick={this.resetForm}
+    >
+      Reset
+    </Button>
+    <Link to='/workouts'>
+      <Button>Back to all workouts</Button>
     </Link>
-  </form>
-
+  </Form>
 )
 
 export default LogWorkoutForm

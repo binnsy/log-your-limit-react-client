@@ -4,6 +4,8 @@ import axios from 'axios'
 import apiUrl from '../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
+// import { IconName } from '@fortawesome/fontawesome-svg-core'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import BigCalendar from 'react-big-calendar'
 // import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
@@ -46,6 +48,16 @@ class LogWorkouts extends Component {
       .catch(console.error)
   }
 
+  Capitalize (str) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
+  // Run (str) {
+  //   if (str === 'run') {
+  //     return str + <i className="fas fa-running"></i>
+  //   }
+  // }
+
   render () {
     const { workouts } = this.state
     const { user } = this.props
@@ -59,8 +71,8 @@ class LogWorkouts extends Component {
         <ListGroup>
           { user && workouts.map(workout => (
             <ListGroup.Item key={workout.id} action>
-              <span className="h5 d-block">{workout.title}</span>
-              <span className="d-block">{workout.distance} {workout.time}</span>
+              <span className="h5 d-block">{this.Capitalize(workout.title)}</span>
+              <span className="d-block">{workout.date}</span>
               <Link to={'/workouts/' + workout.id}>
                 <Button>See workout</Button>
               </Link>

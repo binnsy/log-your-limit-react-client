@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { signUp, signIn } from '../api'
@@ -43,9 +43,8 @@ class SignUp extends Component {
 
     return (
       <Form className='form' onSubmit={this.onSignUp}>
-        <h3>Sign Up</h3>
+        <h3 className='sign-up'>Sign Up</h3>
         <Form.Group controlId="nickname">
-          <Form.Label>Nickname</Form.Label>
           <Form.Control
             required
             name="nickname"
@@ -57,7 +56,6 @@ class SignUp extends Component {
         </Form.Group>
 
         <Form.Group controlId="email">
-          <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -69,7 +67,6 @@ class SignUp extends Component {
         </Form.Group>
 
         <Form.Group controlId="password">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Enter password"
@@ -80,7 +77,6 @@ class SignUp extends Component {
           />
         </Form.Group>
         <Form.Group controlId="password">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             required
             name="passwordConfirmation"
@@ -90,9 +86,15 @@ class SignUp extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Button type="submit">Sign In</Button>
+        <Button type="submit">Sign Up</Button>
         <Form.Text className="text-danger mt-3">
-          Do <strong>not</strong> use real emails or passwords. Seriously, don&rsquo;t do it!
+          Do <strong>NOT</strong> use real emails or passwords!
+        </Form.Text>
+        <Form.Text className="text-secondary mt-3">
+        If you already have an account click here
+          <Link to='/sign-in'>
+            <Button size='xxs' className='btn-sm' type="submit">Sign In</Button>
+          </Link>
         </Form.Text>
       </Form>
     )

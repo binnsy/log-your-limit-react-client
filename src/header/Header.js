@@ -1,39 +1,44 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 import './Header.scss'
 
 const authenticatedOptions = (
   <React.Fragment>
-    <Link to="/change-password">Change Password</Link>
-    <Link to="/sign-out">Sign Out</Link>
-    <Link to="/workouts">Workouts</Link>
+    <Nav.Link className="header" href="#change-password">Change Password</Nav.Link>
+    <Nav.Link className="header" href="#sign-out">Sign Out</Nav.Link>
+    <Nav.Link className="header" href="#workouts">Workouts</Nav.Link>
   </React.Fragment>
 )
 
 const unauthenticatedOptions = (
   <React.Fragment>
-    <Link to="/sign-up">Sign Up</Link>
-    <Link to="/sign-in">Sign In</Link>
+    <Nav.Link className="header" href="#sign-up">Sign Up</Nav.Link>
+    <Nav.Link className="header" href="#sign-in">Sign In</Nav.Link>
   </React.Fragment>
 )
 
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/home">Home</Link>
-    <Link to="/calendar">Calendar</Link>
+    <Nav.Link className="header" href="#home">Home</Nav.Link>
+    <Nav.Link className="header" href="#calendar">Calendar</Nav.Link>
   </React.Fragment>
 )
 
 const Header = ({ user }) => (
   <header className="main-header">
-    { console.log('user', user) }
-    <h1>Log Your Limit</h1>
-    <nav>
-      { user && <span>Welcome, {user.nickname}</span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
-      { alwaysOptions }
-    </nav>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand className="log-your-limit mr-auto" href="#home"><strong>Log Your Limit</strong></Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          { user && <span>Hi, {user.name}</span>}
+          { user && <span>Welcome, {user.nickname}</span>}
+          { user ? authenticatedOptions : unauthenticatedOptions }
+          { alwaysOptions }
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   </header>
 )
 

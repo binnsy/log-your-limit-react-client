@@ -68,9 +68,19 @@ class LogWorkoutEdit extends Component {
           workout: this.state.workout
         }
       })
-      // .then(this.setState({ updated: true }))
+        .then(response =>
+          this.setState({
+            workout: response.data.workout,
+            updated: true
+          }))
       // .catch(console.error)
-      this.setState({ updated: true })
+        .then(() => this.props.alert(`${this.state.title} has been updated in your workouts!`, 'success'))
+        .catch(() => {
+          this.props.alert('Whoops! Failed to update your workout. Please try again.', 'danger')
+          this.setState({
+            updated: false
+          })
+        })
     }
 
     render () {

@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import './App.scss'
+import './auth/Auth.scss'
+import './header/Header.scss'
+import './home/Home.scss'
+import './calendar/Calendar.scss'
 import { Route } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
@@ -73,7 +77,7 @@ class App extends Component {
             <LogWorkouts alert={this.alert} user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/create-workout' render={() => (
-            <LogWorkout user={user} />
+            <LogWorkout msg={this.msg} alert={this.alert} user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/workouts/:id' render={({ match }) => (
             <Workout match={match} alert={this.alert} user={user} />

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Countdown from './Countdown'
-import { Form, FormControl, Button } from 'react-bootstrap'
+import { Form, Button, Col } from 'react-bootstrap'
 // import Quote from './MotivationalQuotes'
+import './Home.scss'
 
 class MyCountdown extends Component {
   constructor (props) {
@@ -27,29 +28,34 @@ class MyCountdown extends Component {
 
   render () {
     return (
-      <div className="home">
-        <div>
-        Date: {this.state.curTime}
-        </div>
-        <br>
-        </br>
-        <div className="myCountdown">
-    Countdown to Ironman Mt. Tremblant{this.state.deadline}
-        </div>
-        <Countdown
-          deadline={this.state.deadline}
-        />
-        <Form inline>
-          <FormControl
-            className='Deadline-input'
-            placeholder='new date'
-            onChange={event => this.setState({ newDeadline: event.target.value })}
+      <Col className="text-center hi">
+        <div className="home">
+          <div>
+          Date: {this.state.curTime}
+          </div>
+          <br>
+          </br>
+          <div className="myCountdown">
+      Countdown to Ironman Mt. Tremblant
+            <br>
+            </br>
+            {this.state.deadline}
+          </div>
+          <Countdown
+            deadline={this.state.deadline}
           />
-          <Button onClick={() => this.changeDeadline()}>
-          Submit
-          </Button>
-        </Form>
-      </div>
+          <Form>
+            <input
+              className='Deadline-input'
+              placeholder='new date'
+              onChange={event => this.setState({ newDeadline: event.target.value })}
+            />
+            <Button type="submit" onClick={() => this.changeDeadline()}>
+            Submit
+            </Button>
+          </Form>
+        </div>
+      </Col>
     )
   }
 }

@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 import { signIn } from '../api'
 import messages from '../messages'
-
-const styles = {
-  color: 'pink'
-}
 
 class SignIn extends Component {
   constructor () {
@@ -43,28 +41,38 @@ class SignIn extends Component {
     const { email, password } = this.state
 
     return (
-      <form className='auth-form' style={ styles }onSubmit={this.onSignIn}>
-        <h3 style={ styles }>Sign In</h3>
-        <label htmlFor="email">Email</label>
-        <input
-          required
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Email"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          name="password"
-          value={password}
-          type="password"
-          placeholder="Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Sign In</button>
-      </form>
+      <Form className='form' onSubmit={this.onSignIn}>
+        <h3 className='sign-in'>Sign In</h3>
+        <Form.Group controlId="email">
+          <Form.Control
+            required
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Email"
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="password">
+          <Form.Control
+            required
+            name="password"
+            value={password}
+            type="password"
+            placeholder="Password"
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+
+        <Button type="submit">Sign In</Button>
+        <Form.Text className="text-secondary mt-3">
+        If you need an account click here
+          <Link to='/sign-up'>
+            <Button className='btn-sm' type="submit">Sign up</Button>
+          </Link>
+        </Form.Text>
+      </Form>
     )
   }
 }
