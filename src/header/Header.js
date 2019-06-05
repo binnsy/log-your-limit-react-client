@@ -31,8 +31,7 @@ const Header = ({ user }) => (
       <Navbar.Brand className="log-your-limit mr-auto" href="#home"><strong>Log Your Limit</strong></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
-          { user && <span>Hi, {user.name}</span>}
+        <Nav className="hello ml-auto">
           { user && <span>Welcome, {user.nickname}</span>}
           { user ? authenticatedOptions : unauthenticatedOptions }
           { alwaysOptions }

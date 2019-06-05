@@ -86,14 +86,14 @@ class SignUp extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Button type="submit">Sign Up</Button>
+        <Button className='btn-secondary' type="submit">Sign Up</Button>
         <Form.Text className="text-danger mt-3">
           Do <strong>NOT</strong> use real emails or passwords!
         </Form.Text>
         <Form.Text className="text-secondary mt-3">
         If you already have an account click here
           <Link to='/sign-in'>
-            <Button size='xxs' className='btn-sm' type="submit">Sign In</Button>
+            <Button size='xxs' className='btn-sm btn-secondary' type="submit">Sign In</Button>
           </Link>
         </Form.Text>
       </Form>

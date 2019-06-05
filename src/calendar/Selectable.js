@@ -3,6 +3,8 @@ import BigCalendar from 'react-big-calendar'
 import events from './Events'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+import './Calendar.scss'
+
 // import LogRun from './LogRun'
 
 const propTypes = {}

@@ -8,3 +8,21 @@
 .workout {
   font-size: 35px;
 }
+
+app-body {
+  margin-top: 10px;
+}
+
+.list-group-item {
+  margin: 5px;
+  // background-color: rgba(0,0,0,0.5);
+}
+// .add-workout {
+//   align-items: center;
+// }
+.list-workouts {
+  margin: 10px;
+  border-radius: 10px;
+  align-items: center;
+  text-align: center;
+}

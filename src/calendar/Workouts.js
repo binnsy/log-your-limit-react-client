@@ -64,11 +64,13 @@ class LogWorkouts extends Component {
     console.log({ workouts })
     return (
       <Fragment>
-        <div className="d-flex justify-content-between align-items-center py-3">
-          <h3 className="m-0">Workouts currently in the Library</h3>
-          {user && <Button variant="success" href="#create-workout">Add A Workout</Button>}
+        <div className="add-workout d-flex justify-content-between align-items-center py-3">
+          <h3 className="m-0">Workouts Logged</h3>
         </div>
-        <ListGroup>
+        <div>
+          {user && <Button className='add-workout' variant="success" href="#create-workout">Add A Workout</Button>}
+        </div>
+        <ListGroup className='list-workouts'>
           { user && workouts.map(workout => (
             <ListGroup.Item key={workout.id} action>
               <span className="h5 d-block">{this.Capitalize(workout.title)}</span>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 import { changePassword } from '../api'
 import messages from '../messages'
@@ -37,29 +39,33 @@ class ChangePassword extends Component {
     const { oldPassword, newPassword } = this.state
 
     return (
-      <form className='auth-form' onSubmit={this.onChangePassword}>
-        <h3>Change Password</h3>
 
-        <label htmlFor="oldpw">Old Password</label>
-        <input
-          required
-          name="oldPassword"
-          value={oldPassword}
-          type="password"
-          placeholder="Old Password"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="newPassword">New Password</label>
-        <input
-          required
-          name="newPassword"
-          value={newPassword}
-          type="password"
-          placeholder="New Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Change Password</button>
-      </form>
+      <Form className='form' onSubmit={this.onChangePassword}>
+        <h3 className='change-password'>Change Password</h3>
+        <Form.Group controlId="oldpw">
+          <Form.Control
+            required
+            type="password"
+            name="oldPassword"
+            value={oldPassword}
+            placeholder="Old Password"
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="newPassword">
+          <Form.Control
+            required
+            name="newPassword"
+            value={newPassword}
+            type="password"
+            placeholder="New Password"
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+
+        <Button className='btn-secondary' type="submit">Change Password</Button>
+      </Form>
     )
   }
 }
