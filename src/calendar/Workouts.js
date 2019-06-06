@@ -2,8 +2,9 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-import ListGroup from 'react-bootstrap/ListGroup'
+// import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
+// import Cal from './ReactBigCal'
 // import { IconName } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import BigCalendar from 'react-big-calendar'
@@ -68,19 +69,19 @@ class LogWorkouts extends Component {
           <h3 className="m-0">Workouts Logged</h3>
         </div>
         <div>
-          {user && <Button className='add-workout' variant="success" href="#create-workout">Add A Workout</Button>}
+          <Button className='add-workout' variant="success" href="#create-workout">Add A Workout</Button>
         </div>
-        <ListGroup className='list-workouts'>
+        <div className='list-workouts'>
           { user && workouts.map(workout => (
-            <ListGroup.Item key={workout.id} action>
+            <div key={workout.id}>
               <span className="h5 d-block">{this.Capitalize(workout.title)}</span>
               <span className="d-block">{workout.date}</span>
               <Link to={'/workouts/' + workout.id}>
                 <Button>See workout</Button>
               </Link>
-            </ListGroup.Item>
+            </div>
           )) }
-        </ListGroup>
+        </div>
       </Fragment>
     )
   }

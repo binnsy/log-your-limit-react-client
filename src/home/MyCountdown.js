@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Countdown from './Countdown'
 import { Form, Button, Col } from 'react-bootstrap'
 // import Quote from './MotivationalQuotes'
+import DemoApp from '../calendar/FullCal'
+// import Cal from '../calendar/ReactBigCal'
 import './Home.scss'
 
 class MyCountdown extends Component {
@@ -33,6 +35,7 @@ class MyCountdown extends Component {
           <div>
           Today is:  {this.state.curTime}
           </div>
+          <DemoApp />
           <br>
           </br>
           <div className="myCountdown">

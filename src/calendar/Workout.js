@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-import Card from 'react-bootstrap/Card'
+// import Card from 'react-bootstrap/Card'
 // import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
 
@@ -107,17 +107,17 @@ class Workout extends Component {
     }
 
     return (
-      <Card className="text-center workout">
-        <Card.Header><strong>{this.Capitalize(workout.title)}</strong></Card.Header>
-        <Card.Body>
-          <Card.Text>
+      <div className="text-center workout">
+        <div><strong>{this.Capitalize(workout.title)}</strong></div>
+        <div>
+          <div>
             <p>date: {workout.date ? workout.date : 'Unknown'}</p>
             <p>description: {workout.description ? workout.description : 'Unknown'}</p>
             <p>start date: {workout.startDate ? workout.startDate : 'Unknown'}</p>
             <p>end date: {workout.endDate ? workout.endDate : 'Unknown'}</p>
             <p>distance: {workout.distance ? workout.distance : 'Unknown'}</p>
             <p>time: {workout.time ? workout.time : 'Unknown'}</p>
-          </Card.Text>
+          </div>
           <div>
             <Button onClick={this.destroy} variant="primary">Delete Workout</Button>
           </div>
@@ -129,8 +129,8 @@ class Workout extends Component {
           <Link to='/workouts'>
             <Button>Back to all workouts</Button>
           </Link>
-        </Card.Body>
-      </Card>
+        </div>
+      </div>
     )
   }
 }

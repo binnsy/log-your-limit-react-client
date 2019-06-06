@@ -24,7 +24,8 @@ class LogWorkout extends Component {
         endDate: '',
         distance: '',
         time: ''
-      }
+      },
+      createdWorkout: false
     }
   }
   //
@@ -51,11 +52,13 @@ class LogWorkout extends Component {
           endDate: this.state.endDate,
           distance: this.state.distance,
           time: this.state.time
-        }
+        },
+        createdWorkout: true
       }
     })
       .then(response => this.setState({
-        workout: response.data.workout
+        workout: response.data.workout,
+        createdWorkout: true
       }))
       .then(() => this.props.alert(`${this.state.title} has been added to your workouts!`, 'success'))
       .then(() => this.props.history.push('/workouts'))
@@ -103,7 +106,7 @@ class LogWorkout extends Component {
     return (
       <Form className="form" onSubmit={this.handleSubmit} >
         <h2>Create Workout</h2>
-        <Form.Group controlId="title">
+        <Form.Group controlId="workoutTitle">
           <Form.Label>Workout Title</Form.Label>
           <Form.Control
             required
@@ -114,7 +117,7 @@ class LogWorkout extends Component {
             placeholder="Enter the workout title"
           />
         </Form.Group>
-        <Form.Group controlId="description">
+        <Form.Group controlId="workoutDescription">
           <Form.Label>Workout Description</Form.Label>
           <Form.Control
             type="text"
@@ -124,7 +127,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="distance">
+        <Form.Group controlId="workoutDistance">
           <Form.Label>Workout Distance</Form.Label>
           <Form.Control
             type="string"
@@ -134,7 +137,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="date">
+        <Form.Group controlId="workoutDate">
           <Form.Label>Workout Date</Form.Label>
           <Form.Control
             required
@@ -145,7 +148,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="time">
+        <Form.Group controlId="workoutTime">
           <Form.Label>Workout time</Form.Label>
           <Form.Control
             type="string"
@@ -155,7 +158,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="startDate">
+        <Form.Group controlId="workoutStartDate">
           <Form.Label>Start Date</Form.Label>
           <Form.Control
             type="date"
@@ -165,7 +168,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="endDate">
+        <Form.Group controlId="workoutEndDate">
           <Form.Label>End Date</Form.Label>
           <Form.Control
             type="date"

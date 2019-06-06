@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 
-import './main.scss'
+import './Calendar.scss'
 
-export default class DemoApp extends React.Component {
+import '@fullcalendar/core/main.css'
+import '@fullcalendar/daygrid/main.css'
+import '@fullcalendar/timegrid/main.css'
 
+class DemoApp extends Component {
   calendarComponentRef = React.createRef()
   state = {
     calendarWeekends: true,
@@ -16,7 +19,7 @@ export default class DemoApp extends React.Component {
     ]
   }
 
-  render() {
+  render () {
     return (
       <div className='demo-app'>
         <div className='demo-app-top'>
@@ -37,7 +40,7 @@ export default class DemoApp extends React.Component {
             weekends={ this.state.calendarWeekends }
             events={ this.state.calendarEvents }
             dateClick={ this.handleDateClick }
-            />
+          />
         </div>
       </div>
     )
@@ -50,20 +53,22 @@ export default class DemoApp extends React.Component {
   }
 
   gotoPast = () => {
-    let calendarApi = this.calendarComponentRef.current.getApi()
+    const calendarApi = this.calendarComponentRef.current.getApi()
     calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
   }
 
   handleDateClick = (arg) => {
     if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
-      this.setState({  // add new event data
+      this.setState({ // add new event data
         calendarEvents: this.state.calendarEvents.concat({ // creates a new array
           title: 'New Event',
+          // description: 'description',
           start: arg.date,
           allDay: arg.allDay
         })
       })
     }
   }
-
 }
+
+export default DemoApp

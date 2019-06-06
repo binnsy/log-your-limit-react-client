@@ -5,6 +5,26 @@ import Button from 'react-bootstrap/Button'
 
 import { signIn } from '../api'
 import messages from '../messages'
+//  <FontAwesomeIcon icon={faCoffee} size="4x" />
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import {
+//   faCoffee,
+//   faCog,
+//   faSpinner,
+//   faQuoteLeft,
+//   faSquare,
+//   faCheckSquare
+// } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//
+// library.add(
+//   faCoffee,
+//   faCog,
+//   faSpinner,
+//   faQuoteLeft,
+//   faSquare,
+//   faCheckSquare
+// )
 
 class SignIn extends Component {
   constructor () {
