@@ -74,7 +74,7 @@ class LogWorkoutEdit extends Component {
             updated: true
           }))
       // .catch(console.error)
-        .then(() => this.props.alert(`${this.state.title} has been updated in your workouts!`, 'success'))
+        .then(() => this.props.alert('Your workout has been updated!, success'))
         .catch(() => {
           this.props.alert('Whoops! Failed to update your workout. Please try again.', 'danger')
           this.setState({

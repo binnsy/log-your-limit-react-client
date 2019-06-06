@@ -56,7 +56,7 @@ class Workout extends Component {
       .then(response =>
         this.setState({ deleted: true
         }))
-      .then(() => this.props.alert(`${this.state.title} has been deleted from your workouts!`, 'success'))
+      .then(() => this.props.alert('Your workout has been deleted!, success'))
       .catch(() => {
         this.props.alert('Whoops! Failed to delete your workout. Please try again.', 'danger')
         this.setState({
