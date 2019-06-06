@@ -21,7 +21,7 @@ import LogWorkouts from './calendar/Workouts'
 // import Cal from './calendar/ReactBigCal'
 import LogWorkoutEdit from './calendar/WorkoutEdit'
 import MyCountdown from './home/MyCountdown'
-import Alert from 'react-bootstrap/Alert'
+import AutoDismissAlert from './AlertTimeout'
 // const MyCalendar = props => (
 //   <div>
 //     <BigCalendar
@@ -60,11 +60,10 @@ class App extends Component {
       <React.Fragment>
         <Header user={user} />
         {alerts.map((alert, index) => (
-          <Alert key={index} dismissible variant={alert.type}>
-            <Alert.Heading>
-              {alert.message}
-            </Alert.Heading>
-          </Alert>
+          <AutoDismissAlert
+            key={index}
+            alert={alert}
+          />
         ))}
         <main className="container">
 
