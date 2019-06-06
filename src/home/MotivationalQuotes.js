@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { quotes } from './MotivationalQuotesList'
 // import Button from 'react-bootstrap/Button'
+
 class Quote extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
-      quote: this.newQuote()
+      content: ''
     }
   }
+
   // handleClick = () => {
   //   this.setState({
   //     quote: 'new quote'
@@ -15,26 +17,28 @@ class Quote extends Component {
   // }
 
   componentDidMount () {
-    const getQuote = () => this.setState({ quote: this.newQuote() })
-    setInterval(getQuote, 10000)
+    const randomNumber = (Math.floor(Math.random() * 1))
+    console.log(randomNumber)
+    const newQuote = quotes[randomNumber].content
+    console.log(newQuote)
+    this.setState({ content: quotes })
+    // this.setState({ quotes })
+    // setInterval(getQuotes, 10000)
   }
+  //
+  // getQuote = () => {
+  //
 
-newQuote = () => {
-  const randomNumber = (Math.floor(Math.random() * quotes.lenth))
-  return quotes[randomNumber]
-}
-
-render () {
-  const { quote } = this.state
-  console.log(quote)
+  render () {
+  // const { quote } = this.state
   // const displayQuote = <h4>&quot;{quote.quote}&quot</h4>
 
-  return (
-    <div>
-      <h1> { this.state.newQuote } </h1>
-    </div>
-  )
-}
+    return (
+      <div>
+        <h1> { this.state.content } </h1>
+      </div>
+    )
+  }
 }
 //
 // class Quote extends Component {
