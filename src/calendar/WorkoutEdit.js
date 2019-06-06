@@ -25,25 +25,52 @@ class LogWorkoutEdit extends Component {
   }
 
   async componentDidMount () {
-    const response = await
+    const editNull = (response) => {
+      for (const key in response.data.workout) {
+        if (response.data.workout[key] === null) {
+          response.data.workout[key] = ''
+        }
+      }
+    }
+    // const response = await
     // axios(`${apiUrl}/workouts/${this.props.match.params.id}`)
-    axios({
+    await axios({
       method: 'GET',
       url: `${apiUrl}/workouts/${this.props.match.params.id}`,
       headers: {
         'Authorization': `Token token=${this.props.user.token}`
       }
     })
+      .then((response) => {
+        editNull(response)
+        return response
+      })
+      .then(response =>
+        this.setState({
+          workout: response.data.workout
+        })
+      )
     // if (response.error) {
     //   console.erroe(response.error)
     // } else {
-    this.setState({ workout: response.data.workout })
-    // }
-    // .then(res => {
-    //   this.setState({ movie: res.data.movie })
-    // })
-    // .catch(console.error)
+
+  // }
+  // .then(res => {
+  //   this.setState({ movie: res.data.movie })
+  // })
+  // .catch(console.error)
   }
+
+  resetForm = () => this.setState({
+    id: '',
+    title: '',
+    description: '',
+    date: '',
+    startDate: '',
+    endDate: '',
+    distance: '',
+    time: ''
+  })
 
   handleChange = (event) => {
     // access and update state
@@ -74,7 +101,7 @@ class LogWorkoutEdit extends Component {
             updated: true
           }))
       // .catch(console.error)
-        .then(() => this.props.alert('Your workout has been updated!, success'))
+        .then(() => this.props.alert('Your workout has been updated!', 'success'))
         .catch(() => {
           this.props.alert('Whoops! Failed to update your workout. Please try again.', 'danger')
           this.setState({
@@ -95,6 +122,7 @@ class LogWorkoutEdit extends Component {
         <div>
           <LogWorkoutForm
             workout={workout}
+            resetForm={this.resetForm}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             cancelPath={`/workouts/${this.props.match.params.id}`}

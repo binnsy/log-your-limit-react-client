@@ -32,7 +32,7 @@ const Header = ({ user }) => (
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="hello ml-auto">
-          { user && <span>Welcome, {user.nickname}</span>}
+          <div className="nickname"><strong>{ user && <span>Welcome, {user.nickname}</span>}</strong></div>
           { user ? authenticatedOptions : unauthenticatedOptions }
           { alwaysOptions }
         </Nav>

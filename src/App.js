@@ -5,7 +5,6 @@ import './header/Header.scss'
 import './home/Home.scss'
 import './calendar/Calendar.scss'
 import { Route } from 'react-router-dom'
-
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
@@ -22,6 +21,7 @@ import LogWorkouts from './calendar/Workouts'
 import LogWorkoutEdit from './calendar/WorkoutEdit'
 import MyCountdown from './home/MyCountdown'
 import AutoDismissAlert from './AlertTimeout'
+
 // const MyCalendar = props => (
 //   <div>
 //     <BigCalendar

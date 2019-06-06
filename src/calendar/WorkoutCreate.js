@@ -16,7 +16,6 @@ class LogWorkout extends Component {
 
     this.state = {
       workout: {
-        id: '',
         title: '',
         description: '',
         date: '',
@@ -45,7 +44,6 @@ class LogWorkout extends Component {
       data: {
         workout: {
           title: this.state.title,
-          id: this.state.id,
           description: this.state.description,
           date: this.state.date,
           startDate: this.state.startDate,
@@ -65,14 +63,16 @@ class LogWorkout extends Component {
       .catch(() => {
         this.props.alert('Whoops! Failed to add your workout. Please try again.', 'danger')
         this.setState({
-          id: '',
-          title: '',
-          description: '',
-          date: '',
-          startDate: '',
-          endDate: '',
-          distance: '',
-          time: ''
+          workout: {
+            title: '',
+            description: '',
+            date: '',
+            startDate: '',
+            endDate: '',
+            distance: '',
+            time: ''
+          },
+          createdWorkout: false
         })
       })
   }
@@ -82,7 +82,6 @@ class LogWorkout extends Component {
   })
 
   resetForm = () => this.setState({
-    id: '',
     title: '',
     description: '',
     date: '',
@@ -110,8 +109,8 @@ class LogWorkout extends Component {
           <Form.Label>Workout Title</Form.Label>
           <Form.Control
             required
-            type="text"
-            value={title}
+            type="string"
+            value={title || ''}
             name="title"
             onChange={this.handleChange}
             placeholder="Enter the workout title"
@@ -120,8 +119,8 @@ class LogWorkout extends Component {
         <Form.Group controlId="workoutDescription">
           <Form.Label>Workout Description</Form.Label>
           <Form.Control
-            type="text"
-            value={description}
+            type="string"
+            value={description || ''}
             name="description"
             placeholder="Description"
             onChange={this.handleChange}
@@ -131,7 +130,7 @@ class LogWorkout extends Component {
           <Form.Label>Workout Distance</Form.Label>
           <Form.Control
             type="string"
-            value={distance}
+            value={distance || ''}
             name="distance"
             placeholder="Enter distance in miles"
             onChange={this.handleChange}
@@ -142,7 +141,7 @@ class LogWorkout extends Component {
           <Form.Control
             required
             type="date"
-            value={date}
+            value={date || ''}
             name="date"
             placeholder="YYYY-MM-DD"
             onChange={this.handleChange}
@@ -152,7 +151,7 @@ class LogWorkout extends Component {
           <Form.Label>Workout time</Form.Label>
           <Form.Control
             type="string"
-            value={time}
+            value={time || ''}
             name="time"
             placeholder="Enter workout time"
             onChange={this.handleChange}
@@ -162,7 +161,7 @@ class LogWorkout extends Component {
           <Form.Label>Start Date</Form.Label>
           <Form.Control
             type="date"
-            value={startDate}
+            value={startDate || ''}
             name="startDate"
             placeholder="YYYY-MM-DD"
             onChange={this.handleChange}
@@ -172,7 +171,7 @@ class LogWorkout extends Component {
           <Form.Label>End Date</Form.Label>
           <Form.Control
             type="date"
-            value={endDate}
+            value={endDate || ''}
             name="endDate"
             placeholder="YYYY-MM-DD"
             onChange={this.handleChange}

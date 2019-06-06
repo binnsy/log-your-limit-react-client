@@ -14,7 +14,7 @@ class Workout extends Component {
     super(props)
 
     this.state = {
-      workout: null,
+      workout: '',
       deleted: false
     }
   }
@@ -56,7 +56,7 @@ class Workout extends Component {
       .then(response =>
         this.setState({ deleted: true
         }))
-      .then(() => this.props.alert('Your workout has been deleted!, success'))
+      .then(() => this.props.alert('Your workout has been deleted!', 'success'))
       .catch(() => {
         this.props.alert('Whoops! Failed to delete your workout. Please try again.', 'danger')
         this.setState({
@@ -111,23 +111,23 @@ class Workout extends Component {
         <div><strong>{this.Capitalize(workout.title)}</strong></div>
         <div>
           <div>
-            <p>date: {workout.date ? workout.date : 'Unknown'}</p>
-            <p>description: {workout.description ? workout.description : 'Unknown'}</p>
-            <p>start date: {workout.startDate ? workout.startDate : 'Unknown'}</p>
-            <p>end date: {workout.endDate ? workout.endDate : 'Unknown'}</p>
-            <p>distance: {workout.distance ? workout.distance : 'Unknown'}</p>
-            <p>time: {workout.time ? workout.time : 'Unknown'}</p>
+            <p>Date: {workout.date ? workout.date : ' - '}</p>
+            <p>Description: {workout.description ? workout.description : ' - '}</p>
+            <p>Dtart date: {workout.startDate ? workout.startDate : ' - '}</p>
+            <p>End date: {workout.endDate ? workout.endDate : ' - '}</p>
+            <p>Distance: {workout.distance ? workout.distance : ' - '}</p>
+            <p>Time: {workout.time ? workout.time : ' - '}</p>
           </div>
           <div>
-            <Button onClick={this.destroy} variant="primary">Delete Workout</Button>
+            <Button onClick={this.destroy} variant="danger">Delete Workout</Button>
           </div>
           <div>
             <Link to={'/workouts/' + workout.id + '/edit'}>
-              <Button>Edit</Button>
+              <Button variant="secondary">Edit</Button>
             </Link>
           </div>
           <Link to='/workouts'>
-            <Button>Back to all workouts</Button>
+            <Button variant="secondary">Back to all workouts</Button>
           </Link>
         </div>
       </div>

@@ -11,7 +11,7 @@ const LogWorkoutForm = ({ workout, handleSubmit, handleChange, cancelPath }) => 
       <Form.Label>Workout Title</Form.Label>
       <Form.Control
         required
-        type="text"
+        type="string"
         value={workout.title}
         name="title"
         onChange={handleChange}
@@ -21,7 +21,7 @@ const LogWorkoutForm = ({ workout, handleSubmit, handleChange, cancelPath }) => 
     <Form.Group controlId="description">
       <Form.Label>Workout Description</Form.Label>
       <Form.Control
-        type="text"
+        type="string"
         value={workout.description}
         name="description"
         placeholder="Description"
