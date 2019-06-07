@@ -103,7 +103,7 @@ class LogWorkout extends Component {
     // }
 
     return (
-      <Form className="form" onSubmit={this.handleSubmit} >
+      <Form className="form form-color" onSubmit={this.handleSubmit} >
         <h2>Create Workout</h2>
         <Form.Group controlId="workoutTitle">
           <Form.Label>Workout Title</Form.Label>

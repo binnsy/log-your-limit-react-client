@@ -2,6 +2,10 @@
   margin: 3px;
 }
 
+// .form {
+//   background-color: rgba(179, 204, 255, .3);
+// }
+
 .card-text {
   font-size: 20px;
 }
@@ -18,11 +22,17 @@
   background-color: rgba(179, 204, 255, .3);
 
 }
-
+.rbc-calendar {
+  height: 600px;
+}
 app-body {
   margin-top: 10px;
 }
 
+.form-color {
+  background-color: rgba(179, 204, 255, .3);
+
+}
 .list-group-item {
   margin: 5px;
   // background-color: rgba(0,0,0,0.5);
