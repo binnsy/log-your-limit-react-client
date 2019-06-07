@@ -14,7 +14,7 @@ Git-hub Log Your Limit Front End https://github.com/binnsy/log-your-limit-react-
 
 Git-hub Log Your Limit Back End: https://github.com/binnsy/log-your-limit-rails-api
 
-Deployed Log Your Limit Front End : https://binnsy.github.io/log-your-limit-react-client/#/workouts
+Deployed Log Your Limit Front End : https://binnsy.github.io/log-your-limit-react-client/#/
 
 Deployed Log Your Limit Back End: https://log-your-limit.herokuapp.com/
 
@@ -49,6 +49,11 @@ User Stories:
 •    As a signed in user, I would like to update my workout.
 •    As a signed in user, I would like to delete my workout.
 •    As a signed in user, I would like to see all of my workouts.
+
+Setup and installation instructions:
+- Fork
+- Clone
+- install dependencies npm install
 
 For the Future:
 -	change my backend so it returns my events in the calendar!
