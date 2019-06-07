@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import LogWorkoutForm from './LogWorkoutForm'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class LogWorkoutEdit extends Component {
   constructor (props) {
@@ -127,7 +127,6 @@ class LogWorkoutEdit extends Component {
             handleSubmit={this.handleSubmit}
             cancelPath={`/workouts/${this.props.match.params.id}`}
           />
-          <Link to='/workouts'>Back to all workouts</Link>
         </div>
       )
     }
