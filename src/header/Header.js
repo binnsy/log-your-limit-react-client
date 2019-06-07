@@ -8,6 +8,7 @@ const authenticatedOptions = (
     <Nav.Link className="header" href="#change-password">Change Password</Nav.Link>
     <Nav.Link className="header" href="#sign-out">Sign Out</Nav.Link>
     <Nav.Link className="header" href="#workouts">Workouts</Nav.Link>
+    <Nav.Link className="header" href="#calendar">Calendar</Nav.Link>
   </React.Fragment>
 )
 
@@ -21,24 +22,21 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
   <React.Fragment>
     <Nav.Link className="header" href="#home">Home</Nav.Link>
-    <Nav.Link className="header" href="#calendar">Calendar</Nav.Link>
   </React.Fragment>
 )
 
 const Header = ({ user }) => (
-  <header className="main-header">
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand className="log-your-limit mr-auto" href="#home"><strong>Log Your Limit</strong></Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="hello ml-auto">
-          <div className="nickname"><strong>{ user && <span>Welcome, {user.nickname}</span>}</strong></div>
-          { user ? authenticatedOptions : unauthenticatedOptions }
-          { alwaysOptions }
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  </header>
+  <Navbar className="main-header" collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar.Brand className="log-your-limit" href="#home"><strong>Log Your Limit</strong></Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="hello ml-auto">
+        <div className="nickname"><strong>{ user && <span>Welcome, {user.nickname}</span>}</strong></div>
+        { user ? authenticatedOptions : unauthenticatedOptions }
+        { alwaysOptions }
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 )
 
 export default Header

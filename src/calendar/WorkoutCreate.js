@@ -33,7 +33,7 @@ class LogWorkout extends Component {
   // }
 
   handleSubmit = (event) => {
-    console.log('submitted', event)
+    // console.log('submitted', event)
     event.preventDefault()
     axios({
       url: `${apiUrl}/workouts`,
@@ -178,22 +178,15 @@ class LogWorkout extends Component {
           />
         </Form.Group>
         <Button
-          variant="primary"
+          variant="success"
           type="submit"
           className="m-1"
         >
           Submit
         </Button>
-        <Button
-          variant="danger"
-          type="button"
-          className="m-1"
-          onClick={this.resetForm}
-        >
-          Reset
-        </Button>
+
         <Link to='/workouts'>
-          <Button>Back to all workouts</Button>
+          <Button variant="secondary">Back to all workouts</Button>
         </Link>
       </Form>
     )

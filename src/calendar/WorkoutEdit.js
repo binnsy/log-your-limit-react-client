@@ -74,7 +74,7 @@ class LogWorkoutEdit extends Component {
 
   handleChange = (event) => {
     // access and update state
-    console.log('change', event)
+    // console.log('change', event)
     const updatedField = {
       [event.target.name]: event.target.value
     }

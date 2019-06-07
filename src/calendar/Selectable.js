@@ -35,7 +35,7 @@ class Selectable extends React.Component {
   }
 
   eventStyleGetter (event, start, end, isSelected) {
-    console.log(event)
+    // console.log(event)
     const backgroundColor = '#' + event.hexColor
     const style = {
       backgroundColor: backgroundColor,

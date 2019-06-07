@@ -12,7 +12,11 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import {
   faBiking,
   faRunning,
-  faSwimmer
+  faSwimmer,
+  faDumbbell,
+  faHeartbeat,
+  faSkiing,
+  faHiking
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -20,12 +24,16 @@ library.add(
   fab,
   faBiking,
   faRunning,
-  faSwimmer
+  faSwimmer,
+  faDumbbell,
+  faHeartbeat,
+  faSkiing,
+  faHiking
 )
 
 class Workout extends Component {
   constructor (props) {
-    console.log(props)
+    // console.log(props)
     super(props)
 
     this.state = {
@@ -57,7 +65,7 @@ class Workout extends Component {
   // }
 
   destroy = async () => {
-    console.log('trying to delete')
+    // console.log('trying to delete')
     // axios.delete(url, { data: { foo: "bar" } });
     await axios({
       method: 'DELETE',
@@ -105,9 +113,9 @@ class Workout extends Component {
   }
 
   FontAwesome (str) {
-    console.log(str)
+    // console.log(str)
     str = str.charAt(0).toUpperCase() + str.slice(1)
-    console.log(str)
+    // console.log(str)
     // for (const key in response.data.workout) {
     if (str === 'Run') {
       return <FontAwesomeIcon icon={faRunning} size="2x" />
@@ -116,7 +124,14 @@ class Workout extends Component {
       return <FontAwesomeIcon icon={faSwimmer} size="2x" />
     } else if (str === 'Bike') {
       return <FontAwesomeIcon icon={faBiking} size="2x" />
-    } else {
+    } else if (str === 'Lift') {
+      return <FontAwesomeIcon icon={faDumbbell} size="2x" />
+    } else if (str === 'Ski') {
+      return <FontAwesomeIcon icon={faSkiing} size="2x" />
+    } else if (str === 'Hike') {
+      return <FontAwesomeIcon icon={faHiking} size="2x" />
+    } else if (str !== 'Bike') {
+      return <FontAwesomeIcon icon={faHeartbeat} size="2x" />
     }
   }
 
@@ -150,17 +165,17 @@ class Workout extends Component {
             <p>Distance: {workout.distance ? workout.distance : ' - '}</p>
             <p>Time: {workout.time ? workout.time : ' - '}</p>
           </div>
-          <div>
-            <Button onClick={this.destroy} variant="danger">Delete Workout</Button>
-          </div>
+          <Link to='/workouts'>
+            <Button variant="secondary">Back to all workouts</Button>
+          </Link>
           <div>
             <Link to={'/workouts/' + workout.id + '/edit'}>
               <Button variant="secondary">Edit</Button>
             </Link>
           </div>
-          <Link to='/workouts'>
-            <Button variant="secondary">Back to all workouts</Button>
-          </Link>
+          <div>
+            <Button onClick={this.destroy} variant="danger">Delete Workout</Button>
+          </div>
         </div>
       </div>
     )

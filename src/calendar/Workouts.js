@@ -27,7 +27,12 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import {
   faBiking,
   faRunning,
-  faSwimmer
+  faSwimmer,
+  faHeartbeat,
+  faSkiing,
+  faHiking,
+  faDumbbell,
+  faWalking
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -35,7 +40,12 @@ library.add(
   fab,
   faBiking,
   faRunning,
-  faSwimmer
+  faSwimmer,
+  faHeartbeat,
+  faSkiing,
+  faHiking,
+  faDumbbell,
+  faWalking
 )
 
 class LogWorkouts extends Component {
@@ -49,7 +59,7 @@ class LogWorkouts extends Component {
   }
 
   async componentDidMount () {
-    console.log(this.props.user)
+    // console.log(this.props.user)
     axios({
       method: 'GET',
       url: `${apiUrl}/workouts`,
@@ -62,9 +72,9 @@ class LogWorkouts extends Component {
 
       .then(response => {
         this.setState({ workouts: response.data.workouts })
-        console.log(response)
+        // console.log(response)
       })
-      .catch(console.error)
+      // .catch(console.error)
   }
 
   Capitalize (str) {
@@ -72,9 +82,9 @@ class LogWorkouts extends Component {
   }
 
   FontAwesome (str) {
-    console.log(str)
+    // console.log(str)
     str = str.charAt(0).toUpperCase() + str.slice(1)
-    console.log(str)
+    // console.log(str)
     // for (const key in response.data.workout) {
     if (str === 'Run') {
       return <FontAwesomeIcon icon={faRunning} size="2x" />
@@ -83,10 +93,18 @@ class LogWorkouts extends Component {
       return <FontAwesomeIcon icon={faSwimmer} size="2x" />
     } else if (str === 'Bike') {
       return <FontAwesomeIcon icon={faBiking} size="2x" />
-    } else {
+    } else if (str === 'Lift') {
+      return <FontAwesomeIcon icon={faDumbbell} size="2x" />
+    } else if (str === 'Ski') {
+      return <FontAwesomeIcon icon={faSkiing} size="2x" />
+    } else if (str === 'Hike') {
+      return <FontAwesomeIcon icon={faHiking} size="2x" />
+    } else if (str === 'Walk') {
+      return <FontAwesomeIcon icon={faWalking} size="2x" />
+    } else if (str !== 'Bike') {
+      return <FontAwesomeIcon icon={faHeartbeat} size="2x" />
     }
   }
-
   //   if (str === 'Run') {
   //     console.log(str)
   //     return <i className="far fa-clock">Run</i>
@@ -104,7 +122,7 @@ class LogWorkouts extends Component {
   render () {
     const { workouts } = this.state
     const { user } = this.props
-    console.log({ workouts })
+    // console.log({ workouts })
     return (
       <Fragment>
         <div className='add-workout'>

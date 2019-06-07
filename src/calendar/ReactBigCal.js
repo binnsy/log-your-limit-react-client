@@ -34,12 +34,12 @@ class Cal extends Component {
       }
     })
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         const appointments = response.data
-        console.log(appointments)
+        // console.log(appointments)
 
         for (let i = 0; i < appointments.length; i++) {
-          console.log(appointments[i])
+          // console.log(appointments[i])
 
           appointments[i].title = this.convertDate(appointments[i].evts)
           appointments[i].date = this.convertDate(appointments[i].start)
@@ -59,7 +59,7 @@ class Cal extends Component {
 
   render () {
     const { workouts } = this.state
-    console.log(workouts)
+    // console.log(workouts)
     const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 
     return (

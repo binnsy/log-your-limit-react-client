@@ -80,22 +80,15 @@ const LogWorkoutForm = ({ workout, handleSubmit, handleChange, cancelPath }) => 
       />
     </Form.Group>
     <Button
-      variant="primary"
+      variant="success"
       type="submit"
       className="m-1"
     >
       Submit
     </Button>
-    <Button
-      variant="danger"
-      type="button"
-      className="m-1"
-      onClick={this.resetForm}
-    >
-      Reset
-    </Button>
+
     <Link to='/workouts'>
-      <Button>Back to all workouts</Button>
+      <Button variant='secondary'>Back to all workouts</Button>
     </Link>
   </Form>
 )
