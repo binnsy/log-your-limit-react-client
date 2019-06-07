@@ -7,6 +7,21 @@ import apiUrl from '../apiConfig'
 import Button from 'react-bootstrap/Button'
 
 // import Layout from '../Layout'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import {
+  faBiking,
+  faRunning,
+  faSwimmer
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(
+  fab,
+  faBiking,
+  faRunning,
+  faSwimmer
+)
 
 class Workout extends Component {
   constructor (props) {
@@ -89,6 +104,22 @@ class Workout extends Component {
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
+  FontAwesome (str) {
+    console.log(str)
+    str = str.charAt(0).toUpperCase() + str.slice(1)
+    console.log(str)
+    // for (const key in response.data.workout) {
+    if (str === 'Run') {
+      return <FontAwesomeIcon icon={faRunning} size="2x" />
+      // return <i className="far fa-clock">Run</i>
+    } else if (str === 'Swim') {
+      return <FontAwesomeIcon icon={faSwimmer} size="2x" />
+    } else if (str === 'Bike') {
+      return <FontAwesomeIcon icon={faBiking} size="2x" />
+    } else {
+    }
+  }
+
   render () {
     const { workout, deleted } = this.state
 
@@ -108,7 +139,8 @@ class Workout extends Component {
 
     return (
       <div className="text-center workout">
-        <div><strong>{this.Capitalize(workout.title)}</strong></div>
+        <span className="h5 d-block"><strong>{this.Capitalize(workout.title)}</strong></span>
+        <span className="h5 d-block"><strong>{this.FontAwesome(workout.title)}</strong></span>
         <div>
           <div>
             <p>Date: {workout.date ? workout.date : ' - '}</p>

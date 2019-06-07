@@ -27,11 +27,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import {
   faBiking,
   faRunning,
-  faSwimmer,
-  faSpinner,
-  faQuoteLeft,
-  faSquare,
-  faCheckSquare
+  faSwimmer
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -39,11 +35,7 @@ library.add(
   fab,
   faBiking,
   faRunning,
-  faSwimmer,
-  faSpinner,
-  faQuoteLeft,
-  faSquare,
-  faCheckSquare
+  faSwimmer
 )
 
 class LogWorkouts extends Component {
@@ -79,9 +71,33 @@ class LogWorkouts extends Component {
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
-  // Run (str) {
-  //   if (str === 'run') {
-  //     return str + <i className="fas fa-running"></i>
+  FontAwesome (str) {
+    console.log(str)
+    str = str.charAt(0).toUpperCase() + str.slice(1)
+    console.log(str)
+    // for (const key in response.data.workout) {
+    if (str === 'Run') {
+      return <FontAwesomeIcon icon={faRunning} size="2x" />
+      // return <i className="far fa-clock">Run</i>
+    } else if (str === 'Swim') {
+      return <FontAwesomeIcon icon={faSwimmer} size="2x" />
+    } else if (str === 'Bike') {
+      return <FontAwesomeIcon icon={faBiking} size="2x" />
+    } else {
+    }
+  }
+
+  //   if (str === 'Run') {
+  //     console.log(str)
+  //     return <i className="far fa-clock">Run</i>
+  //     // <FontAwesomeIcon icon={faRunning} size="4x" />
+  //   }
+  // }
+  // const editNull = (response) => {
+  //   for (const key in response.data.workout) {
+  //     if (response.data.workout[key] === null) {
+  //       response.data.workout[key] = ''
+  //     }
   //   }
   // }
 
@@ -107,6 +123,7 @@ class LogWorkouts extends Component {
             { user && workouts.map(workout => (
               <div className='one-workout' key={workout.id}>
                 <span className="h5 d-block">{this.Capitalize(workout.title)}</span>
+                <span className="h5 d-block">{this.FontAwesome(workout.title)}</span>
                 <span className="d-block">{workout.date}</span>
                 <Link to={'/workouts/' + workout.id}>
                   <Button variant="secondary">See workout</Button>
