@@ -68,8 +68,6 @@ class Selectable extends React.Component {
                   defaultView={BigCalendar.Views.MONTH}
                   scrollToTime={new Date(1970, 1, 1, 6)}
                   defaultDate={new Date()}
-                  onSelectEvent={event => alert(event.title, event.start, event.end)}
-                  onSelectSlot={this.handleSelect}
                   eventPropGetter={(this.eventStyleGetter)}
                 />
               </div>
@@ -80,6 +78,9 @@ class Selectable extends React.Component {
     )
   }
 }
+//
+// onSelectEvent={event => alert(event.title, event.start, event.end)}
+// onSelectSlot={this.handleSelect}
 
 Selectable.propTypes = propTypes
 
