@@ -32,7 +32,8 @@ Deployed Log Your Limit Back End: https://log-your-limit.herokuapp.com/
 
 ##### Planning:
 I wanted to try and create a calendar app that logged workouts, so I started by deciding which back end I wanted to use and what calendar npm install I wanted to use. I knew I wanted to use react even though I was not comfortable with it. My wireframe (see below) was very advanced as to what I actually accomplished. I had created and hard coded most of the features on my wireframe already on a test front end app I was using, but not using react. I thought it would be relatively simple to convert over, but because React is still new to me and the time span to complete the project was relatively short, I didn’t get to most of them. My goal was to get CRUD done on my project by the third day and deploy it then focus on more styling and squishing bugs on the final day.
-Wireframe: https://imgur.com/QkJKqk4
+Wireframe:
+![IMG_9427](https://user-images.githubusercontent.com/27842159/59164605-123e7780-8add-11e9-8832-454c099bbff1.JPG)
 
 ##### Challenges/Obstacles:
 
