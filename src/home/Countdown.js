@@ -81,8 +81,8 @@ export default Countdown
 //     this.stop()
 //   }
 //
-//   calculateCountdown (endDate) {
-//     let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date())) / 1000
+//   calculateCountdown (end) {
+//     let diff = (Date.parse(new Date(end)) - Date.parse(new Date())) / 1000
 //
 //     // clear countdown when date is reached
 //     if (diff <= 0) return false

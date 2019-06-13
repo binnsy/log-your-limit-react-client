@@ -15,8 +15,8 @@ class LogWorkoutEdit extends Component {
         title: '',
         description: '',
         date: '',
-        startDate: '',
-        endDate: '',
+        start: '',
+        end: '',
         distance: '',
         time: ''
       },
@@ -66,8 +66,8 @@ class LogWorkoutEdit extends Component {
     title: '',
     description: '',
     date: '',
-    startDate: '',
-    endDate: '',
+    start: '',
+    end: '',
     distance: '',
     time: ''
   })

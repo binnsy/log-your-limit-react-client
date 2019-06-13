@@ -122,7 +122,7 @@ class LogWorkouts extends Component {
   render () {
     const { workouts } = this.state
     const { user } = this.props
-    // console.log({ workouts })
+    console.log({ workouts })
     return (
       <Fragment>
         <div className='add-workout'>

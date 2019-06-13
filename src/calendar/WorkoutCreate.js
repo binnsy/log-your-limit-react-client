@@ -19,8 +19,8 @@ class LogWorkout extends Component {
         title: '',
         description: '',
         date: '',
-        startDate: '',
-        endDate: '',
+        start: '',
+        end: '',
         distance: '',
         time: ''
       },
@@ -46,8 +46,8 @@ class LogWorkout extends Component {
           title: this.state.title,
           description: this.state.description,
           date: this.state.date,
-          startDate: this.state.startDate,
-          endDate: this.state.endDate,
+          start: this.state.start,
+          end: this.state.end,
           distance: this.state.distance,
           time: this.state.time
         },
@@ -67,8 +67,8 @@ class LogWorkout extends Component {
             title: '',
             description: '',
             date: '',
-            startDate: '',
-            endDate: '',
+            start: '',
+            end: '',
             distance: '',
             time: ''
           },
@@ -85,14 +85,14 @@ class LogWorkout extends Component {
     title: '',
     description: '',
     date: '',
-    startDate: '',
-    endDate: '',
+    start: '',
+    end: '',
     distance: '',
     time: ''
   })
 
   render () {
-    const { date, title, description, distance, time, startDate, endDate } = this.state
+    const { date, title, description, distance, time, start, end } = this.state
     // const { isSubmitted } = this.props
     // if (isSubmitted) {
     //   return <Redirect to='/workouts' />
@@ -157,22 +157,22 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="workoutStartDate">
+        <Form.Group controlId="workoutstart">
           <Form.Label>Start Date</Form.Label>
           <Form.Control
             type="date"
-            value={startDate || ''}
-            name="startDate"
+            value={start || ''}
+            name="start"
             placeholder="YYYY-MM-DD"
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="workoutEndDate">
+        <Form.Group controlId="workoutend">
           <Form.Label>End Date</Form.Label>
           <Form.Control
             type="date"
-            value={endDate || ''}
-            name="endDate"
+            value={end || ''}
+            name="end"
             placeholder="YYYY-MM-DD"
             onChange={this.handleChange}
           />

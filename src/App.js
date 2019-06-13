@@ -13,11 +13,11 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 // import Calendar from './calendar/Calendar'
 // import Quote from
-import Selectable from './calendar/Selectable'
+// import Selectable from './calendar/Selectable'
 import LogWorkout from './calendar/WorkoutCreate'
 import Workout from './calendar/Workout'
 import LogWorkouts from './calendar/Workouts'
-// import Cal from './calendar/ReactBigCal'
+import Cal from './calendar/ReactBigCal'
 import LogWorkoutEdit from './calendar/WorkoutEdit'
 // import MyCountdown from './home/MyCountdown'
 import AutoDismissAlert from './AlertTimeout'
@@ -68,7 +68,7 @@ class App extends Component {
         <main className="container">
 
           <AuthenticatedRoute user={user} path='/calendar' render={() => (
-            <Selectable setUser={this.setUser} />
+            <Cal user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/workouts' render={() => (
             <LogWorkouts alert={this.alert} user={user} />
