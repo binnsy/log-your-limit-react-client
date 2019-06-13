@@ -72,7 +72,6 @@ class LogWorkouts extends Component {
 
       .then(response => {
         this.setState({ workouts: response.data.workouts })
-        // console.log(response)
       })
       // .catch(console.error)
   }
@@ -122,7 +121,7 @@ class LogWorkouts extends Component {
   render () {
     const { workouts } = this.state
     const { user } = this.props
-    // console.log({ workouts })
+    console.log({ workouts })
     return (
       <Fragment>
         <div className='add-workout'>

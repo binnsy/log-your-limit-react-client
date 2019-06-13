@@ -59,22 +59,22 @@ const LogWorkoutForm = ({ workout, handleSubmit, handleChange, cancelPath }) => 
         onChange={handleChange}
       />
     </Form.Group>
-    <Form.Group controlId="startDate">
+    <Form.Group controlId="start">
       <Form.Label>Start Date</Form.Label>
       <Form.Control
         type="date"
-        value={workout.startDate}
-        name="startDate"
+        value={workout.start}
+        name="start"
         placeholder="YYYY-MM-DD"
         onChange={handleChange}
       />
     </Form.Group>
-    <Form.Group controlId="endDate">
+    <Form.Group controlId="end">
       <Form.Label>End Date</Form.Label>
       <Form.Control
         type="date"
-        value={workout.endDate}
-        name="endDate"
+        value={workout.end}
+        name="end"
         placeholder="YYYY-MM-DD"
         onChange={handleChange}
       />

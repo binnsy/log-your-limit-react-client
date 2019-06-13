@@ -160,8 +160,8 @@ class Workout extends Component {
           <div>
             <p>Date: {workout.date ? workout.date : ' - '}</p>
             <p>Description: {workout.description ? workout.description : ' - '}</p>
-            <p>Dtart date: {workout.startDate ? workout.startDate : ' - '}</p>
-            <p>End date: {workout.endDate ? workout.endDate : ' - '}</p>
+            <p>Dtart date: {workout.start ? workout.start : ' - '}</p>
+            <p>End date: {workout.end ? workout.end : ' - '}</p>
             <p>Distance: {workout.distance ? workout.distance : ' - '}</p>
             <p>Time: {workout.time ? workout.time : ' - '}</p>
           </div>

@@ -2,13 +2,21 @@ import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 // import { logWorkout } from '../api'
 // import messages from '../messages'
+import BigCalendar from 'react-big-calendar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import moment from 'moment'
+
 // import Layout from '../Layout'
 // import LogWorkoutForm from './LogWorkoutForm'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
+moment.locale('en')
 // import { Redirect } from 'react-router-dom'
+console.log(moment(Date.now()))
+
+const doo = new Date()
+console.log('doo', doo)
 
 class LogWorkout extends Component {
   constructor () {
@@ -19,8 +27,8 @@ class LogWorkout extends Component {
         title: '',
         description: '',
         date: '',
-        startDate: '',
-        endDate: '',
+        start: '',
+        end: '',
         distance: '',
         time: ''
       },
@@ -46,8 +54,8 @@ class LogWorkout extends Component {
           title: this.state.title,
           description: this.state.description,
           date: this.state.date,
-          startDate: this.state.startDate,
-          endDate: this.state.endDate,
+          start: this.state.start,
+          end: this.state.end,
           distance: this.state.distance,
           time: this.state.time
         },
@@ -67,8 +75,8 @@ class LogWorkout extends Component {
             title: '',
             description: '',
             date: '',
-            startDate: '',
-            endDate: '',
+            start: '',
+            end: '',
             distance: '',
             time: ''
           },
@@ -85,14 +93,14 @@ class LogWorkout extends Component {
     title: '',
     description: '',
     date: '',
-    startDate: '',
-    endDate: '',
+    start: '',
+    end: '',
     distance: '',
     time: ''
   })
 
   render () {
-    const { date, title, description, distance, time, startDate, endDate } = this.state
+    const { date, title, description, distance, time, start, end } = this.state
     // const { isSubmitted } = this.props
     // if (isSubmitted) {
     //   return <Redirect to='/workouts' />
@@ -101,6 +109,8 @@ class LogWorkout extends Component {
     //   return <Redirect
     //     to={'/workouts/'} />
     // }
+    moment.locale('en')
+    const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 
     return (
       <Form className="form form-color" onSubmit={this.handleSubmit} >
@@ -157,22 +167,24 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="workoutStartDate">
+        <Form.Group controlId="workoutstart">
           <Form.Label>Start Date</Form.Label>
           <Form.Control
             type="date"
-            value={startDate || ''}
-            name="startDate"
+            localizer={localizer}
+            value={start || ''}
+            name="start"
             placeholder="YYYY-MM-DD"
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="workoutEndDate">
+        <Form.Group controlId="workoutend">
           <Form.Label>End Date</Form.Label>
           <Form.Control
             type="date"
-            value={endDate || ''}
-            name="endDate"
+            localizer={localizer}
+            value={end || ''}
+            name="end"
             placeholder="YYYY-MM-DD"
             onChange={this.handleChange}
           />
