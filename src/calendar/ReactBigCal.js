@@ -3,11 +3,20 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import axios from 'axios'
-
+// import momentTZ from 'moment-timezone'
 import './Calendar.scss'
 import apiUrl from '../apiConfig'
-moment.locale('en-GB')
-BigCalendar.momentLocalizer(moment)
+// momentTZ.setDefault('America/New_York')
+// const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
+// console.log(localizer)
+// import 'moment/locale/en'
+console.log(moment(Date.now()))
+
+// BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
+moment.locale('en')
+
+// console.log(BigCalendar.momentLocalizer(moment))
+// BigCalendar.momentLocalizer(moment)
 
 const propTypes = {}
 
@@ -40,12 +49,14 @@ class Cal extends Component {
         // console.log(events.title)
         //
         for (let i = 0; i < events.length; i++) {
-          this.setState({ events: events })
-          // events[i].start = moment.utc(events[i].start).toDate()
-          // events[i].end = moment.utc(events[i].end).toDate()
+          events[i].start = moment.utc(events[i].start).add(1, 'day').toDate()
+          events[i].end = moment.utc(events[i].end).add(1, 'day').toDate()
           console.log(this.state.events)
           console.log(events[i].start)
         }
+        this.setState({ events: events })
+        // events[i].start = moment.utc(events[i].start).toDate()
+        // events[i].end = moment.utc(events[i].end).toDate()
         // console.log('hi')
         // for (let i = 0; i < events.length; i++) {
         //   console.log(events[i].start)
@@ -73,8 +84,9 @@ class Cal extends Component {
     console.log(this.state.events)
     console.log(events)
     console.log(workouts)
+    moment.locale('en')
     const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
-
+    console.log(localizer)
     return (
       <div className="App">
         <header className="App-header">
@@ -83,6 +95,7 @@ class Cal extends Component {
         <div style={{ height: 700 }}>
           <BigCalendar
             events={this.state.events}
+            culture='en'
             localizer={localizer}
             step={30}
             defaultView={BigCalendar.Views.MONTH}

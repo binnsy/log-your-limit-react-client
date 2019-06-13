@@ -72,7 +72,6 @@ class LogWorkouts extends Component {
 
       .then(response => {
         this.setState({ workouts: response.data.workouts })
-        // console.log(response)
       })
       // .catch(console.error)
   }

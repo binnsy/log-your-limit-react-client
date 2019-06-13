@@ -2,13 +2,21 @@ import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 // import { logWorkout } from '../api'
 // import messages from '../messages'
+import BigCalendar from 'react-big-calendar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import moment from 'moment'
+
 // import Layout from '../Layout'
 // import LogWorkoutForm from './LogWorkoutForm'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
+moment.locale('en')
 // import { Redirect } from 'react-router-dom'
+console.log(moment(Date.now()))
+
+const doo = new Date()
+console.log('doo', doo)
 
 class LogWorkout extends Component {
   constructor () {
@@ -101,6 +109,8 @@ class LogWorkout extends Component {
     //   return <Redirect
     //     to={'/workouts/'} />
     // }
+    moment.locale('en')
+    const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 
     return (
       <Form className="form form-color" onSubmit={this.handleSubmit} >
@@ -161,6 +171,7 @@ class LogWorkout extends Component {
           <Form.Label>Start Date</Form.Label>
           <Form.Control
             type="date"
+            localizer={localizer}
             value={start || ''}
             name="start"
             placeholder="YYYY-MM-DD"
@@ -171,6 +182,7 @@ class LogWorkout extends Component {
           <Form.Label>End Date</Form.Label>
           <Form.Control
             type="date"
+            localizer={localizer}
             value={end || ''}
             name="end"
             placeholder="YYYY-MM-DD"
