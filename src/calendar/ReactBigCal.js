@@ -6,6 +6,7 @@ import axios from 'axios'
 // import momentTZ from 'moment-timezone'
 import './Calendar.scss'
 import apiUrl from '../apiConfig'
+// import CalendarEvent from './CalendarEvent'
 // momentTZ.setDefault('America/New_York')
 // const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 // console.log(localizer)
@@ -79,33 +80,89 @@ class Cal extends Component {
       })
   }
 
-  render () {
-    const { events, workouts } = this.state
-    console.log(this.state.events)
-    console.log(events)
-    console.log(workouts)
-    moment.locale('en')
-    const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
-    console.log(localizer)
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Test Calendar</h1>
-        </header>
-        <div style={{ height: 700 }}>
-          <BigCalendar
-            events={this.state.events}
-            culture='en'
-            localizer={localizer}
-            step={30}
-            defaultView={BigCalendar.Views.MONTH}
-            views={['month', 'week', 'day']}
-            defaultDate={new Date()}
-          />
-        </div>
+  // handleSelect = event => this.setState({
+  //   events: event
+  // })
+  // handleSelect = {event.title, event.start, event.end, event,description)}
+
+// onSelectEvent = {event => alert(event.title, event.start, event.end)}
+// handleSelect = ({ start, end }) => {
+//   const title = window.prompt('New Event name')
+//   if (title) {
+//     this.setState({
+//       events: [
+//       ]
+//     })
+//   }
+// }
+// calendarEventCell = ({ event }) => {
+//   return (
+//     <div className="calendar-event">
+//       <p>{event.title}</p>
+//       <span className="event-time">{event.description}</span>
+//     </div>
+//   )
+// }
+// <div>
+//   <p>Date: {workout.date ? workout.date : ' - '}</p>
+//   <p>Description: {workout.description ? workout.description : ' - '}</p>
+//   <p>Dtart date: {workout.start ? workout.start : ' - '}</p>
+//   <p>End date: {workout.end ? workout.end : ' - '}</p>
+//   <p>Distance: {workout.distance ? workout.distance : ' - '}</p>
+//   <p>Time: {workout.time ? workout.time : ' - '}</p>
+// </div>
+handleEventClick = () => {
+  const { events } = this.state
+  console.log(event.title)
+  console.log(event)
+  console.log(events)
+
+  // const { events } = this.props
+
+  console.log('event clicked!', this.state.events)
+}
+
+render () {
+  const { events } = this.state
+  console.log(this.state.events)
+  console.log(events)
+  const { alert } = this.props
+  moment.locale('en')
+  const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
+  console.log(localizer)
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">Test Calendar</h1>
+      </header>
+      <div onClick={this.handleEventClick} style={{ height: 700 }}>
+        <BigCalendar
+          events={this.state.events}
+          culture='en'
+          localizer={localizer}
+          step={30}
+          defaultView={BigCalendar.Views.MONTH}
+          views={['month', 'week', 'day']}
+          defaultDate={new Date()}
+          // components={{
+          //   event: CalendarEvent
+          // }}
+          // onSelectEvent={(event) => this.handleSelect(event)}
+          // onSelectEvent={event => onEventClick(event, props)}
+          // eventPropGetter={(this.eventStyleGetter)}
+          // eventPropGetter={event}
+          // onSelectSlot={this.handleSelect}
+          // onSelectEvent={event => alert(
+          //   <p>{ event.title }</p>,
+          //   <p>{event.description}</p>
+          //   , 'success')}
+          // onSelectEvent={event => alert(event.distance, 'info')}
+          onSelectEvent={event => alert(event.title, 'info')}
+        />
       </div>
-    )
-  }
+    </div>
+  )
+}
 }
 
 Cal.propTypes = propTypes
