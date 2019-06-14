@@ -43,10 +43,7 @@ class TodaysDate extends Component {
   render () {
     const time = this.state.time
     console.log(time)
-    // let greeting = 'Hello!'
-    // console.log(greeting)
-    // if (time >= '7:00 PM') {
-    //   greeting = 'Good Evening!'
+
     let welcome = 'Hello!'
 
     if (time >= 1 || time <= 12) {
@@ -58,10 +55,6 @@ class TodaysDate extends Component {
     } else if (time >= 21 || time <= 24) {
       welcome = 'Goodnight!'
     }
-    // if (time < 17) { welcome = 'Good Afternoon' }
-    // if (time < 12) { welcome = 'Good Morning' }
-    // if (time < 4 || time > 17) { welcome = 'Good Evening' }
-    // if (time >= 21 && time <= 24) { welcome = 'Happy Hour Time' }
 
     // if (time >= 5 && time <= 11) { welcome = 'Good Morning!' }
     // if (time >= 12 && time <= 16) { welcome = 'Good Afternoon!' }
