@@ -167,7 +167,7 @@ render () {
           //   , 'success')}
           // onSelectEvent={this.handleEventClick}
           // onSelectEvent={event => alert(event.distance, 'info')}
-          onSelectEvent={event => alert(`Title:${event.title} || Distance: ${event.distance} || Time: ${event.time}`, 'info')}
+          onSelectEvent={event => alert(`Title:  ${event.title}   ||   Distance:  ${event.distance}   ||   Time:  ${event.time}`, 'info')}
         />
       </div>
     </div>
