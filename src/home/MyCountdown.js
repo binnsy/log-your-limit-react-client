@@ -29,8 +29,10 @@ class MyCountdown extends Component {
     this.state = {
       date: date,
       now: now,
+      title: 'Countdown to Ironman Mt. Tremblant',
       deadline: 'August 18, 2019',
-      newDeadline: ''
+      newDeadline: '',
+      newTitle: ''
     }
   }
 
@@ -43,32 +45,39 @@ class MyCountdown extends Component {
   }
 
   changeDeadline () {
-    this.setState({ deadline: this.state.newDeadline })
+    this.setState({ deadline: this.state.newDeadline, title: this.state.newTitle })
   }
+
+  // changeTitle () {
+  //   this.setState({ title: this.state.newTitle })
+  // }
 
   render () {
     return (
       <Col className="text-center hi">
         <div className="home">
-          <div className="today">
-            <p>Today is</p>
-            <div>{this.state.curTime}</div>
+          <div className="title">
+            {this.state.title}
           </div>
-          <br>
-          </br>
           <div className="myCountdown">
-      Countdown to Ironman Mt. Tremblant
-            <br>
-            </br>
             {this.state.deadline}
           </div>
           <Countdown
+            title={this.state.title}
             deadline={this.state.deadline}
           />
           <Form>
             <input
+              required
+              className='Title-input'
+              placeholder='Independence Day'
+              onChange={event => this.setState({ newTitle: event.target.value })}
+            />
+            <br></br>
+            <input
+              required
               className='Deadline-input'
-              placeholder='new date'
+              placeholder='July 4, 2019'
               onChange={event => this.setState({ newDeadline: event.target.value })}
             />
             <Button type="submit" onClick={() => this.changeDeadline()}>

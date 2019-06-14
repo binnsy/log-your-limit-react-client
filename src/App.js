@@ -20,7 +20,7 @@ import Workout from './calendar/Workout'
 import LogWorkouts from './calendar/Workouts'
 import Cal from './calendar/ReactBigCal'
 import LogWorkoutEdit from './calendar/WorkoutEdit'
-// import MyCountdown from './home/MyCountdown'
+import MyCountdown from './home/MyCountdown'
 import AutoDismissAlert from './AlertTimeout'
 
 // const MyCalendar = props => (
@@ -70,6 +70,9 @@ class App extends Component {
 
           <AuthenticatedRoute user={user} path='/calendar' render={() => (
             <Cal alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/my-countdown' render={() => (
+            <MyCountdown alert={this.alert} user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/workouts' render={() => (
             <LogWorkouts alert={this.alert} user={user} />
