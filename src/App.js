@@ -14,6 +14,7 @@ import ChangePassword from './auth/components/ChangePassword'
 // import Calendar from './calendar/Calendar'
 // import Quote from
 // import Selectable from './calendar/Selectable'
+import TodaysDate from './home/TodaysDate'
 import LogWorkout from './calendar/WorkoutCreate'
 import Workout from './calendar/Workout'
 import LogWorkouts from './calendar/Workouts'
@@ -68,7 +69,7 @@ class App extends Component {
         <main className="container">
 
           <AuthenticatedRoute user={user} path='/calendar' render={() => (
-            <Cal user={user} />
+            <Cal alert={this.alert} user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/workouts' render={() => (
             <LogWorkouts alert={this.alert} user={user} />
@@ -83,7 +84,9 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/workouts/:id/edit' render={({ match }) => (
             <LogWorkoutEdit match={match} alert={this.alert} user={user} />
           )} />
-
+          <Route path='/home' user={user} render={() => (
+            <TodaysDate alert={this.alert} user={user} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />

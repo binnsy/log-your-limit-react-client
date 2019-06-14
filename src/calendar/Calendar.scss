@@ -20,7 +20,7 @@
   box-shadow: 5px 10px #888888;
   align-content: center;
   background-color: rgba(179, 204, 255, .3);
-
+  color: #283747;
 }
 .rbc-calendar {
   height: 600px;
@@ -37,6 +37,9 @@ app-body {
   margin: 5px;
   // background-color: rgba(0,0,0,0.5);
 }
+.form {
+  color: #283747;
+}
 // .add-workout {
 //   align-items: center;
 // }
@@ -47,6 +50,7 @@ app-body {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  color: #283747;
 }
 
 .demo-app {
@@ -70,7 +74,7 @@ app-body {
     width: 300px;
     box-shadow: 5px 10px #888888;
     background-color: rgba(179, 204, 255, .3);
-
+    color: #283747;
 }
 
 .add-workout {
@@ -78,4 +82,5 @@ app-body {
   align-items: center;
   margin: 5px;
   margin-top: 25px;
+  color: #283747;
 }
