@@ -3,6 +3,9 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import axios from 'axios'
+// import { Link } from 'react-router-dom'
+// import Button from 'react-bootstrap/Button'
+
 // import momentTZ from 'moment-timezone'
 import './Calendar.scss'
 import apiUrl from '../apiConfig'
@@ -112,12 +115,18 @@ class Cal extends Component {
 //   <p>Time: {workout.time ? workout.time : ' - '}</p>
 // </div>
 handleEventClick = () => {
+  console.log('clicked!')
   const { events } = this.state
   console.log(event.title)
   console.log(event)
+  console.log(this.state.events)
+  // console.log(this.state.events[i].id)
   console.log(events)
-
+  // if events.date ===
+  for (let i = 0; i < this.state.length; i++) {
+    console.log(event[i].id)
   // const { events } = this.props
+  }
 
   console.log('event clicked!', this.state.events)
 }
@@ -135,7 +144,7 @@ render () {
       <header className="App-header">
         <h1 className="App-title">Test Calendar</h1>
       </header>
-      <div onClick={this.handleEventClick} style={{ height: 700 }}>
+      <div style={{ height: 700 }}>
         <BigCalendar
           events={this.state.events}
           culture='en'
@@ -156,8 +165,9 @@ render () {
           //   <p>{ event.title }</p>,
           //   <p>{event.description}</p>
           //   , 'success')}
+          // onSelectEvent={this.handleEventClick}
           // onSelectEvent={event => alert(event.distance, 'info')}
-          onSelectEvent={event => alert(event.title, 'info')}
+          onSelectEvent={event => alert(`Title:${event.title} || Distance: ${event.distance} || Time: ${event.time}`, 'info')}
         />
       </div>
     </div>
