@@ -1,56 +1,208 @@
 import React, { Component } from 'react'
 
+import { Link, Redirect } from 'react-router-dom'
+import axios from 'axios'
+import apiUrl from '../apiConfig'
+// import Card from 'react-bootstrap/Card'
+// import CardDeck from 'react-bootstrap/CardDeck'
+import Button from 'react-bootstrap/Button'
+
 class Countdown extends Component {
+  //   constructor (props) {
+  //     super(props)
+  //     this.state = {
+  //       days: 0,
+  //       hours: 0,
+  //       minutes: 0,
+  //       seconds: 0
+  //     }
+  //   }
+  //
+  //   componentWillMount () {
+  //     this.getTimeUntil(this.props.deadline)
+  //   }
+  //
+  //   componentDidMount () {
+  //     setInterval(() => this.getTimeUntil(this.props.deadline), 1000)
+  //   }
+  //
+  //   leading0 (num) {
+  //     if (num < 10) {
+  //       return '0' + num
+  //     }
+  //     return num
+  //   }
+  //
+  //   getTimeUntil (deadline) {
+  //     const time = Date.parse(deadline) - Date.parse(new Date())
+  //     const days = Math.floor(time / (1000 * 60 * 60 * 24))
+  //     // console.log('days: ' + days)
+  //     const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  //     // console.log('hours: ' + hours)
+  //     const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60))
+  //     // console.log('minutes: ' + minutes)
+  //     const seconds = Math.floor((time % (1000 * 60)) / 1000)
+  //     // console.log('seconds' + seconds)
+  //     this.setState({ days, hours, minutes, seconds })
+  //   }
+  //
+  //   render () {
+  //     return (
+  //       <div>
+  //         <div>
+  //           <div className='countdown-days'>{this.leading0(this.state.days)} days</div>
+  //           <div className='countdown-hours'>{this.leading0(this.state.hours)} hours</div>
+  //           <div className='countdown-minutes'>{this.leading0(this.state.minutes)} minutes</div>
+  //           <div className='countdown-seconds'>{this.leading0(this.state.seconds)} seconds</div>
+  //         </div>
+  //       </div>
+  //     )
+  //   }
+  // }
+
   constructor (props) {
+  // console.log(props)
     super(props)
+
     this.state = {
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0
+      countdown: '',
+      deleted: false
     }
   }
 
-  componentWillMount () {
-    this.getTimeUntil(this.props.deadline)
+  async componentDidMount () {
+    const response = await
+    axios({
+      url: `${apiUrl}/countdowns/${this.props.match.params.id}`,
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}`
+      }
+    })
+    this.setState({ countdown: response.data.countdown })
   }
+  //   axios({
+  //     url: `${apiUrl}/workouts/${this.props.match.params.id}`,
+  //     headers: {
+  //       'Authorization': `Token token=${this.props.user.token}`
+  //     }
+  //       .then(response => {
+  //         this.setState({ workout: response.data.workout })
+  //       })
+  //       .catch(console.error)
+  //   })
+  // }
 
-  componentDidMount () {
-    setInterval(() => this.getTimeUntil(this.props.deadline), 1000)
-  }
-
-  leading0 (num) {
-    if (num < 10) {
-      return '0' + num
+destroy = async () => {
+  // console.log('trying to delete')
+  // axios.delete(url, { data: { foo: "bar" } });
+  await axios({
+    method: 'DELETE',
+    url: `${apiUrl}/countdowns/${this.props.match.params.id}`,
+    headers: {
+      'Authorization': `Token token=${this.props.user.token}`
     }
-    return num
-  }
+  })
+  // await axios.delete(`${apiUrl}/workouts/${this.props.match.params.id}`)
+  // this.setState({ deleted: true })
+    .then(response =>
+      this.setState({ deleted: true
+      }))
+    .then(() => this.props.alert('Your countdown has been deleted!', 'success'))
+    .catch(() => {
+      this.props.alert('Whoops! Failed to delete your countdown. Please try again.', 'danger')
+      this.setState({
+        deleted: false
+      })
+    })
+}
+// })
+// .catch(console.error)
+//   // .then(res => {
+//   //   this.setState({ movie })
+//     .catch(console.error)
+// }
 
-  getTimeUntil (deadline) {
-    const time = Date.parse(deadline) - Date.parse(new Date())
-    const days = Math.floor(time / (1000 * 60 * 60 * 24))
-    // console.log('days: ' + days)
-    const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    // console.log('hours: ' + hours)
-    const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60))
-    // console.log('minutes: ' + minutes)
-    const seconds = Math.floor((time % (1000 * 60)) / 1000)
-    // console.log('seconds' + seconds)
-    this.setState({ days, hours, minutes, seconds })
-  }
+// handleDelete = (id) => {
+//   axios({
+//     url: `${apiUrl}/workouts/${id}`,
+//     method: 'DELETE',
+//     headers: {
+//       'Authorization': `Token token=${this.props.user.token}`
+//     }
+//   })
+//     .then(response => {
+//       this.setState({ workouts: response.data.workouts })
+//     })
+//     .catch(console.error)
+// }
 
-  render () {
+Capitalize (str) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+// FontAwesome (str) {
+//   // console.log(str)
+//   str = str.charAt(0).toUpperCase() + str.slice(1)
+//   // console.log(str)
+//   // for (const key in response.data.workout) {
+//   if (str === 'Run') {
+//     return <FontAwesomeIcon icon={faRunning} size="2x" />
+//     // return <i className="far fa-clock">Run</i>
+//   } else if (str === 'Swim') {
+//     return <FontAwesomeIcon icon={faSwimmer} size="2x" />
+//   } else if (str === 'Bike') {
+//     return <FontAwesomeIcon icon={faBiking} size="2x" />
+//   } else if (str === 'Lift') {
+//     return <FontAwesomeIcon icon={faDumbbell} size="2x" />
+//   } else if (str === 'Ski') {
+//     return <FontAwesomeIcon icon={faSkiing} size="2x" />
+//   } else if (str === 'Hike') {
+//     return <FontAwesomeIcon icon={faHiking} size="2x" />
+//   } else if (str !== 'Bike') {
+//     return <FontAwesomeIcon icon={faHeartbeat} size="2x" />
+//   }
+// }
+
+render () {
+  const { countdown, deleted } = this.state
+  console.log(countdown)
+
+  if (!countdown) {
     return (
       <div>
-        <div>
-          <div className='countdown-days'>{this.leading0(this.state.days)} days</div>
-          <div className='countdown-hours'>{this.leading0(this.state.hours)} hours</div>
-          <div className='countdown-minutes'>{this.leading0(this.state.minutes)} minutes</div>
-          <div className='countdown-seconds'>{this.leading0(this.state.seconds)} seconds</div>
-        </div>
+        <p>Loading...</p>
       </div>
     )
   }
+
+  if (deleted) {
+    return <Redirect to= {
+      { pathname: '/countdowns', state: { msg: 'countdown successfully deleted!' } }
+    } />
+  }
+
+  return (
+    <div className="text-center countdown">
+      <span className="h5 d-block"><strong>{this.Capitalize(countdown.title)}</strong></span>
+      <div>
+        <div>
+          <p>Date: {countdown.date ? countdown.date : ' - '}</p>
+        </div>
+        <Link to='/countdowns'>
+          <Button variant="secondary">Back to all countdowns</Button>
+        </Link>
+        <div>
+          <Link to={'/countdowns/' + countdown.id + '/edit'}>
+            <Button variant="secondary">Edit</Button>
+          </Link>
+        </div>
+        <div>
+          <Button onClick={this.destroy} variant="danger">Delete Countdown</Button>
+        </div>
+      </div>
+    </div>
+  )
+}
 }
 
 export default Countdown

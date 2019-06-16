@@ -13,14 +13,17 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 // import Calendar from './calendar/Calendar'
 // import Quote from
-// import Selectable from './calendar/Selectable'
+import Selectable from './calendar/Selectable'
+import EditCountdown from './home/EditCountdown'
+import Countdown from './home/Countdown'
+import Countdowns from './home/Countdowns'
 import TodaysDate from './home/TodaysDate'
 import LogWorkout from './calendar/WorkoutCreate'
 import Workout from './calendar/Workout'
 import LogWorkouts from './calendar/Workouts'
 import Cal from './calendar/ReactBigCal'
 import LogWorkoutEdit from './calendar/WorkoutEdit'
-import MyCountdown from './home/MyCountdown'
+import CreateCountdown from './home/CreateCountdown'
 import AutoDismissAlert from './AlertTimeout'
 
 // const MyCalendar = props => (
@@ -71,8 +74,20 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/calendar' render={() => (
             <Cal alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/my-countdown' render={() => (
-            <MyCountdown alert={this.alert} user={user} />
+          <AuthenticatedRoute user={user} exact path='/training-plan' render={({ match }) => (
+            <Selectable match={match} alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/create-countdown' render={() => (
+            <CreateCountdown msg={this.msg} alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/countdowns' render={() => (
+            <Countdowns alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/countdowns/:id' render={({ match }) => (
+            <Countdown match={match} alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/countdowns/:id/edit' render={({ match }) => (
+            <EditCountdown match={match} alert={this.alert} user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/workouts' render={() => (
             <LogWorkouts alert={this.alert} user={user} />
@@ -83,7 +98,6 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/workouts/:id' render={({ match }) => (
             <Workout match={match} alert={this.alert} user={user} />
           )} />
-
           <AuthenticatedRoute user={user} path='/workouts/:id/edit' render={({ match }) => (
             <LogWorkoutEdit match={match} alert={this.alert} user={user} />
           )} />

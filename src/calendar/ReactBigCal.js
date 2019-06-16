@@ -3,6 +3,8 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 // import { Link } from 'react-router-dom'
 // import Button from 'react-bootstrap/Button'
 
@@ -142,7 +144,10 @@ render () {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="App-title">Test Calendar</h1>
+        <h1 className="App-title-my-cal">My Training Calendar</h1>
+        <Link to={'training-plan'}>
+          <Button className="ironman-plan" variant="secondary">Ironman Training Plan</Button>
+        </Link>
       </header>
       <div style={{ height: 700 }}>
         <BigCalendar

@@ -42,17 +42,22 @@ class TodaysDate extends Component {
 
   render () {
     const time = this.state.time
-    console.log(time)
+    // console.log(time)
+    // console.log(this.state.time.toLocaleTimeString())
+    // 6:29:53 PM
+    //   function myFunction() {
+    // let d = new Date()
+    const n = time.getHours()
 
     let welcome = 'Hello!'
 
-    if (time >= 1 || time <= 12) {
+    if (n >= 1 && n <= 12) {
       welcome = 'Good Morning!'
-    } else if (time >= 12 || time <= 16) {
+    } else if (n >= 12 && n <= 16) {
       welcome = 'Good Afternoon!'
-    } else if (time >= 16 || time <= 21) {
+    } else if (n >= 16 && n <= 21) {
       welcome = 'Good Evening!'
-    } else if (time >= 21 || time <= 24) {
+    } else if (n >= 21 && n <= 24) {
       welcome = 'Goodnight!'
     }
 
