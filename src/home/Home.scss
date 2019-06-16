@@ -14,7 +14,33 @@ input {
   margin: 10px;
   font-size: 20px;
 }
-
+.add-countdown {
+  text-align: center;
+  align-items: center;
+  margin: 5px;
+  margin-top: 25px;
+  color: #283747;
+}
+.list-countdowns {
+  margin: 10px;
+  border-radius: 10px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  color: #283747;
+  font-size: 20px;
+}
+.one-countdown {
+    margin: 20px;
+    border: solid white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 5px 10px #888888;
+    background-color: rgba(179, 204, 255, .3);
+    color: #283747;
+}
 .today {
   font-size: 50px;
   text-align: center;

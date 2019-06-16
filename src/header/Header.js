@@ -9,7 +9,7 @@ const authenticatedOptions = (
     <Nav.Link className="header" href="#sign-out">Sign Out</Nav.Link>
     <Nav.Link className="header" href="#workouts">Workouts</Nav.Link>
     <Nav.Link className="header" href="#calendar">Calendar</Nav.Link>
-    <Nav.Link className="header" href="#my-countdown">My Countdown</Nav.Link>
+    <Nav.Link className="header" href="#countdowns">My Countdown</Nav.Link>
 
   </React.Fragment>
 )

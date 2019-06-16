@@ -4,6 +4,8 @@ import events from './Events'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import './Calendar.scss'
+import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 // import LogRun from './LogRun'
 
@@ -36,14 +38,14 @@ class Selectable extends React.Component {
 
   eventStyleGetter (event, start, end, isSelected) {
     // console.log(event)
-    const backgroundColor = '#' + event.hexColor
+    // const backgroundColor = '#' + event.hexColor
     const style = {
-      backgroundColor: backgroundColor,
-      borderRadius: '0px',
-      opacity: 0.8,
-      color: 'black',
-      border: '0px',
-      display: 'block'
+      backgroundColor: '#03B9A6',
+      // borderRadius: '0px',
+      opacity: 0.8
+      // color: 'black',
+      // border: '1px'
+      // display: 'block'
     }
     return {
       style: style
@@ -55,24 +57,26 @@ class Selectable extends React.Component {
     const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 
     return (
-      <div>
-        <div active="plan" title="Planning">
-          <div className="content-app fixed-header">
-            <div className="app-body">
-              <div className="box">
-                <BigCalendar
-                  style={{ height: 500, width: this.state.width }}
-                  selectable
-                  localizer={localizer}
-                  events={this.state.events}
-                  defaultView={BigCalendar.Views.MONTH}
-                  scrollToTime={new Date(1970, 1, 1, 6)}
-                  defaultDate={new Date()}
-                  eventPropGetter={(this.eventStyleGetter)}
-                />
-              </div>
-            </div>
-          </div>
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title-plan">Ironman Training Plan</h1>
+          <h6 className="App-title-plan">This calendar is not editable. This is a reference training plan calendar.</h6>
+          <Link to={'calendar'}>
+            <Button className="btn my-training" variant="secondary">Back to My Training Calendar</Button>
+          </Link>
+        </header>
+        <div style={{ height: 700 }}>
+          <BigCalendar
+            style={{ width: this.state.width }}
+            // selectable
+            culture='en'
+            localizer={localizer}
+            events={this.state.events}
+            defaultView={BigCalendar.Views.MONTH}
+            scrollToTime={new Date(1970, 1, 1, 6)}
+            defaultDate={new Date()}
+            eventPropGetter={(this.eventStyleGetter)}
+          />
         </div>
       </div>
     )

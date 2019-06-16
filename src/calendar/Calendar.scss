@@ -53,11 +53,29 @@ app-body {
   color: #283747;
 }
 
+.my-training {
+  background-color: #2874A6;
+}
+.ironman-plan {
+  background-color: #03B9A6;
+}
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
 }
-
+.App-title-plan {
+  text-align: center;
+  align-items: center;
+  color: #03B9A6;
+}
+.App-title-my-cal {
+  text-align: center;
+  align-items: center;
+  color: #2874A6;
+}
+.App-header {
+  text-align: center;
+}
 .demo-app-top {
   margin: 0 0 3em;
 }
