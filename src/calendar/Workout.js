@@ -5,7 +5,7 @@ import apiUrl from '../apiConfig'
 // import Card from 'react-bootstrap/Card'
 // import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
-
+import moment from 'moment'
 // import Layout from '../Layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -107,6 +107,12 @@ class Workout extends Component {
   //     })
   //     .catch(console.error)
   // }
+  StartDateFormat (workout) {
+    return moment(workout.start).format('LL')
+  }
+  EndDateFormat (workout) {
+    return moment(workout.end).format('LL')
+  }
 
   Capitalize (str) {
     return str.charAt(0).toUpperCase() + str.slice(1)
@@ -158,10 +164,10 @@ class Workout extends Component {
         <span className="h5 d-block"><strong>{this.FontAwesome(workout.title)}</strong></span>
         <div>
           <div>
-            <p>Date: {workout.date ? workout.date : ' - '}</p>
+            <p>Date: {this.StartDateFormat(workout.start)}</p>
             <p>Description: {workout.description ? workout.description : ' - '}</p>
-            <p>Dtart date: {workout.start ? workout.start : ' - '}</p>
-            <p>End date: {workout.end ? workout.end : ' - '}</p>
+            <p>Start date: {this.StartDateFormat(workout.start)}</p>
+            <p>End date: {this.EndDateFormat(workout.end)}</p>
             <p>Distance: {workout.distance ? workout.distance : ' - '}</p>
             <p>Time: {workout.time ? workout.time : ' - '}</p>
           </div>

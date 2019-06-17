@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 // import { IconName } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import BigCalendar from 'react-big-calendar'
-// import moment from 'moment'
+import moment from 'moment'
 import './Calendar.scss'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 // import Layout from '../Layout'
@@ -71,7 +71,15 @@ class LogWorkouts extends Component {
     // this.setState({ workouts: response.data.workouts })
 
       .then(response => {
-        this.setState({ workouts: response.data.workouts })
+        const workouts = response.data.workouts
+        for (let i = 0; i < workouts.length; i++) {
+          workouts[i].start = moment(workouts[i].start).format('LL')
+          console.log(workouts)
+        }
+        this.setState({ workouts: workouts })
+      })
+      .catch(function (error) {
+        console.log(error)
       })
       // .catch(console.error)
   }
@@ -121,6 +129,7 @@ class LogWorkouts extends Component {
   render () {
     const { workouts } = this.state
     const { user } = this.props
+    // countdowns[i].date = moment(countdowns[i].date).format('LL')
     console.log({ workouts })
     return (
       <Fragment>
@@ -141,7 +150,7 @@ class LogWorkouts extends Component {
               <div className='one-workout' key={workout.id}>
                 <span className="h5 d-block">{this.Capitalize(workout.title)}</span>
                 <span className="h5 d-block">{this.FontAwesome(workout.title)}</span>
-                <span className="d-block">{workout.date}</span>
+                <span className="d-block">{workout.start}</span>
                 <Link to={'/workouts/' + workout.id}>
                   <Button variant="secondary">See workout</Button>
                 </Link>

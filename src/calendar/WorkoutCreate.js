@@ -100,7 +100,7 @@ class LogWorkout extends Component {
   })
 
   render () {
-    const { date, title, description, distance, time, start, end } = this.state
+    const { title, description, distance, time, start, end } = this.state
     // const { isSubmitted } = this.props
     // if (isSubmitted) {
     //   return <Redirect to='/workouts' />
@@ -146,17 +146,7 @@ class LogWorkout extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="workoutDate">
-          <Form.Label>Workout Date</Form.Label>
-          <Form.Control
-            required
-            type="date"
-            value={date || ''}
-            name="date"
-            placeholder="YYYY-MM-DD"
-            onChange={this.handleChange}
-          />
-        </Form.Group>
+
         <Form.Group controlId="workoutTime">
           <Form.Label>Workout time</Form.Label>
           <Form.Control
@@ -170,6 +160,7 @@ class LogWorkout extends Component {
         <Form.Group controlId="workoutstart">
           <Form.Label>Start Date</Form.Label>
           <Form.Control
+            required
             type="date"
             localizer={localizer}
             value={start || ''}
@@ -181,6 +172,7 @@ class LogWorkout extends Component {
         <Form.Group controlId="workoutend">
           <Form.Label>End Date</Form.Label>
           <Form.Control
+            required
             type="date"
             localizer={localizer}
             value={end || ''}
