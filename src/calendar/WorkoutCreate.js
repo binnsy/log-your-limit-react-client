@@ -13,10 +13,10 @@ import axios from 'axios'
 import apiUrl from '../apiConfig'
 moment.locale('en')
 // import { Redirect } from 'react-router-dom'
-console.log(moment(Date.now()))
+// console.log(moment(Date.now()))
 
-const doo = new Date()
-console.log('doo', doo)
+// const doo = new Date()
+// console.log('doo', doo)
 
 class LogWorkout extends Component {
   constructor () {

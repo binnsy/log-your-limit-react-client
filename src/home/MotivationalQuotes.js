@@ -17,10 +17,10 @@ class Quote extends Component {
   // }
 
   componentDidMount () {
-    const randomNumber = (Math.floor(Math.random() * 1))
-    console.log(randomNumber)
-    const newQuote = quotes[randomNumber].content
-    console.log(newQuote)
+    // const randomNumber = (Math.floor(Math.random() * 1))
+    // console.log(randomNumber)
+    // const newQuote = quotes[randomNumber].content
+    // console.log(newQuote)
     this.setState({ content: quotes })
     // this.setState({ quotes })
     // setInterval(getQuotes, 10000)
@@ -30,8 +30,8 @@ class Quote extends Component {
   //
 
   render () {
-    const { quote } = this.state
-    console.log(quote)
+    // const { quote } = this.state
+    // console.log(quote)
     // const displayQuote = <h4>&quot;{quote.quote}&quot</h4>
 
     return (

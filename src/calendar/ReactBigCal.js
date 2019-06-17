@@ -16,7 +16,7 @@ import apiUrl from '../apiConfig'
 // const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 // console.log(localizer)
 // import 'moment/locale/en'
-console.log(moment(Date.now()))
+// console.log(moment(Date.now()))
 
 // BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
 moment.locale('en')
@@ -50,8 +50,8 @@ class Cal extends Component {
     })
       .then(response => {
         const events = response.data.workouts
-        console.log(events)
-        console.log(events[0].start)
+        // console.log(events)
+        // console.log(events[0].start)
         // console.log(events.title)
         //
         for (let i = 0; i < events.length; i++) {
@@ -90,94 +90,94 @@ class Cal extends Component {
   // })
   // handleSelect = {event.title, event.start, event.end, event,description)}
 
-// onSelectEvent = {event => alert(event.title, event.start, event.end)}
-// handleSelect = ({ start, end }) => {
-//   const title = window.prompt('New Event name')
-//   if (title) {
-//     this.setState({
-//       events: [
-//       ]
-//     })
-//   }
-// }
-// calendarEventCell = ({ event }) => {
-//   return (
-//     <div className="calendar-event">
-//       <p>{event.title}</p>
-//       <span className="event-time">{event.description}</span>
-//     </div>
-//   )
-// }
-// <div>
-//   <p>Date: {workout.date ? workout.date : ' - '}</p>
-//   <p>Description: {workout.description ? workout.description : ' - '}</p>
-//   <p>Dtart date: {workout.start ? workout.start : ' - '}</p>
-//   <p>End date: {workout.end ? workout.end : ' - '}</p>
-//   <p>Distance: {workout.distance ? workout.distance : ' - '}</p>
-//   <p>Time: {workout.time ? workout.time : ' - '}</p>
-// </div>
-handleEventClick = () => {
-  console.log('clicked!')
-  const { events } = this.state
-  console.log(event.title)
-  console.log(event)
-  console.log(this.state.events)
-  // console.log(this.state.events[i].id)
-  console.log(events)
-  // if events.date ===
-  for (let i = 0; i < this.state.length; i++) {
-    console.log(event[i].id)
-  // const { events } = this.props
-  }
+  // onSelectEvent = {event => alert(event.title, event.start, event.end)}
+  // handleSelect = ({ start, end }) => {
+  //   const title = window.prompt('New Event name')
+  //   if (title) {
+  //     this.setState({
+  //       events: [
+  //       ]
+  //     })
+  //   }
+  // }
+  // calendarEventCell = ({ event }) => {
+  //   return (
+  //     <div className="calendar-event">
+  //       <p>{event.title}</p>
+  //       <span className="event-time">{event.description}</span>
+  //     </div>
+  //   )
+  // }
+  // <div>
+  //   <p>Date: {workout.date ? workout.date : ' - '}</p>
+  //   <p>Description: {workout.description ? workout.description : ' - '}</p>
+  //   <p>Dtart date: {workout.start ? workout.start : ' - '}</p>
+  //   <p>End date: {workout.end ? workout.end : ' - '}</p>
+  //   <p>Distance: {workout.distance ? workout.distance : ' - '}</p>
+  //   <p>Time: {workout.time ? workout.time : ' - '}</p>
+  // </div>
+  // handleEventClick = () => {
+  //   // console.log('clicked!')
+  //   const { events } = this.state
+  //   // console.log(event.title)
+  //   // console.log(event)
+  //   // console.log(this.state.events)
+  //   // // console.log(this.state.events[i].id)
+  //   // console.log(events)
+  //   // if events.date ===
+  //   for (let i = 0; i < this.state.length; i++) {
+  //     console.log(event[i].id)
+  //   // const { events } = this.props
+  //   }
+  //
+  //   console.log('event clicked!', this.state.events)
+  // }
 
-  console.log('event clicked!', this.state.events)
-}
-
-render () {
-  const { events } = this.state
-  // console.log(this.state.events)
-  console.log(events)
-  const { alert } = this.props
-  moment.locale('en')
-  const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
-  console.log(localizer)
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title-my-cal">My Training Calendar</h1>
-        <Link to={'training-plan'}>
-          <Button className="ironman-plan" variant="secondary">Ironman Training Plan</Button>
-        </Link>
-      </header>
-      <div style={{ height: 700 }}>
-        <BigCalendar
-          events={this.state.events}
-          culture='en'
-          localizer={localizer}
-          step={30}
-          defaultView={BigCalendar.Views.MONTH}
-          views={['month', 'week', 'day']}
-          defaultDate={new Date()}
-          // components={{
-          //   event: CalendarEvent
-          // }}
-          // onSelectEvent={(event) => this.handleSelect(event)}
-          // onSelectEvent={event => onEventClick(event, props)}
-          // eventPropGetter={(this.eventStyleGetter)}
-          // eventPropGetter={event}
-          // onSelectSlot={this.handleSelect}
-          // onSelectEvent={event => alert(
-          //   <p>{ event.title }</p>,
-          //   <p>{event.description}</p>
-          //   , 'success')}
-          // onSelectEvent={this.handleEventClick}
-          // onSelectEvent={event => alert(event.distance, 'info')}
-          onSelectEvent={event => alert(`Title:  ${event.title}   ||   Distance:  ${event.distance}   ||   Time:  ${event.time}`, 'info')}
-        />
+  render () {
+    // const { events } = this.state
+    // console.log(this.state.events)
+    // console.log(events)
+    const { alert } = this.props
+    moment.locale('en')
+    const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
+    // console.log(localizer)
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title-my-cal">My Training Calendar</h1>
+          <Link to={'training-plan'}>
+            <Button className="ironman-plan" variant="secondary">Ironman Training Plan</Button>
+          </Link>
+        </header>
+        <div style={{ height: 700 }}>
+          <BigCalendar
+            events={this.state.events}
+            culture='en'
+            localizer={localizer}
+            step={30}
+            defaultView={BigCalendar.Views.MONTH}
+            views={['month', 'week', 'day']}
+            defaultDate={new Date()}
+            // components={{
+            //   event: CalendarEvent
+            // }}
+            // onSelectEvent={(event) => this.handleSelect(event)}
+            // onSelectEvent={event => onEventClick(event, props)}
+            // eventPropGetter={(this.eventStyleGetter)}
+            // eventPropGetter={event}
+            // onSelectSlot={this.handleSelect}
+            // onSelectEvent={event => alert(
+            //   <p>{ event.title }</p>,
+            //   <p>{event.description}</p>
+            //   , 'success')}
+            // onSelectEvent={this.handleEventClick}
+            // onSelectEvent={event => alert(event.distance, 'info')}
+            onSelectEvent={event => alert(`Title:  ${event.title}   ||   Distance:  ${event.distance}   ||   Time:  ${event.time}`, 'info')}
+          />
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 }
 
 Cal.propTypes = propTypes

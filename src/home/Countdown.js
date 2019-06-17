@@ -6,6 +6,7 @@ import apiUrl from '../apiConfig'
 // import Card from 'react-bootstrap/Card'
 // import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
+import moment from 'moment'
 
 class Countdown extends Component {
   //   constructor (props) {
@@ -163,9 +164,13 @@ Capitalize (str) {
 //   }
 // }
 
+StartDateFormat (countdown) {
+  return moment(countdown.start).format('LL')
+}
+
 render () {
   const { countdown, deleted } = this.state
-  console.log(countdown)
+  // console.log(countdown)
 
   if (!countdown) {
     return (
@@ -186,7 +191,7 @@ render () {
       <span className="h5 d-block"><strong>{this.Capitalize(countdown.title)}</strong></span>
       <div>
         <div>
-          <p>Date: {countdown.date ? countdown.date : ' - '}</p>
+          <p>Date: {this.StartDateFormat(countdown.date)}</p>
         </div>
         <Link to='/countdowns'>
           <Button variant="secondary">Back to all countdowns</Button>

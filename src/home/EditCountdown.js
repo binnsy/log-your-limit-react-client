@@ -106,7 +106,7 @@ class EditCountdown extends Component {
 
     render () {
       const { updated, countdown } = this.state
-      console.log(countdown)
+      // console.log(countdown)
       if (updated) {
         return <Redirect
           to={`/countdowns/${this.props.match.params.id}`} />

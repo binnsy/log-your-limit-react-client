@@ -74,12 +74,9 @@ class LogWorkouts extends Component {
         const workouts = response.data.workouts
         for (let i = 0; i < workouts.length; i++) {
           workouts[i].start = moment(workouts[i].start).format('LL')
-          console.log(workouts)
+          // console.log(workouts)
         }
         this.setState({ workouts: workouts })
-      })
-      .catch(function (error) {
-        console.log(error)
       })
       // .catch(console.error)
   }
@@ -130,7 +127,7 @@ class LogWorkouts extends Component {
     const { workouts } = this.state
     const { user } = this.props
     // countdowns[i].date = moment(countdowns[i].date).format('LL')
-    console.log({ workouts })
+    // console.log({ workouts })
     return (
       <Fragment>
         <div className='add-workout'>

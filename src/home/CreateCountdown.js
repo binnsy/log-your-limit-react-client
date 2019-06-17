@@ -13,21 +13,21 @@ class CreateCountdown extends Component {
   constructor (props) {
     super(props)
 
-    const today = new Date()
-    console.log(today)
+    // const today = new Date()
+    // console.log(today)
 
-    let date = new Date().getDate()
-    console.log(date)
-    const month = new Date().getMonth() + 1
-    const year = new Date().getFullYear()
-    const hours = new Date().getHours() + 4
-    console.log(hours)
-    const min = new Date().getMinutes()
-    const sec = new Date().getSeconds()
-    date = (month + '-' + date + '-' + year)
-    console.log(date)
-    const now = (hours + ':' + min + ':' + sec)
-    console.log(now)
+    // let date = new Date().getDate()
+    // console.log(date)
+    // const month = new Date().getMonth() + 1
+    // const year = new Date().getFullYear()
+    // const hours = new Date().getHours() + 4
+    // console.log(hours)
+    // const min = new Date().getMinutes()
+    // const sec = new Date().getSeconds()
+    // date = (month + '-' + date + '-' + year)
+    // console.log(date)
+    // const now = (hours + ':' + min + ':' + sec)
+    // console.log(now)
 
     this.state = {
       countdown: {

@@ -51,15 +51,15 @@ class Countdowns extends Component {
 
       .then(response => {
         const countdowns = response.data.countdowns
-        console.log(countdowns)
-        console.log(countdowns[0].date)
+        // console.log(countdowns)
+        // console.log(countdowns[0].date)
         // console.log(moment(countdowns[0].date).countdown().toString())
         // => '30 years, 10 months, 14 days, 1 hour, 8 minutes, and 14 seconds'
         for (let i = 0; i < countdowns.length; i++) {
           countdowns[i].date = moment(countdowns[i].date).format('LL')
-          console.log(countdowns)
-          console.log(countdowns[i].date)
-          console.log()
+          // console.log(countdowns)
+          // console.log(countdowns[i].date)
+          // console.log()
         }
 
         this.setState({ countdowns: countdowns })
@@ -72,10 +72,10 @@ class Countdowns extends Component {
   render () {
     const { countdowns } = this.state
     const { user } = this.props
-    console.log(countdowns)
+    // console.log(countdowns)
     moment.locale('en')
-    console.log({ countdowns })
-
+    // console.log({ countdowns })
+    // movie.year ? movie.year : 'Unknown'
     return (
       <Fragment>
         <div className='add-countdown'>
