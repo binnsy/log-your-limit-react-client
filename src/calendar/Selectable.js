@@ -55,12 +55,13 @@ class Selectable extends React.Component {
   render () {
     // const { localizer } = this.props
     const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
+    const { alert } = this.props
 
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title-plan">Ironman Training Plan</h1>
-          <h6 className="App-title-plan">This calendar is not editable. This is a reference training plan calendar.</h6>
+          <h6 className="App-title-plan">This calendar is not editable. This is a 24 week 2019 Mt. Tremblant Ironman training plan.</h6>
           <Link to={'calendar'}>
             <Button className="btn my-training" variant="secondary">Back to My Training Calendar</Button>
           </Link>
@@ -76,6 +77,8 @@ class Selectable extends React.Component {
             scrollToTime={new Date(1970, 1, 1, 6)}
             defaultDate={new Date()}
             eventPropGetter={(this.eventStyleGetter)}
+            onSelectEvent={event => alert(`Title:  ${event.title}   ||   Distance:  ${event.distance}   ||   Time:  ${event.time}`, 'info')}
+
           />
         </div>
       </div>

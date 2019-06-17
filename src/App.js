@@ -25,6 +25,7 @@ import Cal from './calendar/ReactBigCal'
 import LogWorkoutEdit from './calendar/WorkoutEdit'
 import CreateCountdown from './home/CreateCountdown'
 import AutoDismissAlert from './AlertTimeout'
+// import Clock from './home/Clock2'
 
 // const MyCalendar = props => (
 //   <div>
@@ -83,6 +84,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/countdowns' render={() => (
             <Countdowns alert={this.alert} user={user} />
           )} />
+
           <AuthenticatedRoute user={user} exact path='/countdowns/:id' render={({ match }) => (
             <Countdown match={match} alert={this.alert} user={user} />
           )} />

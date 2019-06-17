@@ -30,12 +30,13 @@ class Quote extends Component {
   //
 
   render () {
-  // const { quote } = this.state
-  // const displayQuote = <h4>&quot;{quote.quote}&quot</h4>
+    const { quote } = this.state
+    console.log(quote)
+    // const displayQuote = <h4>&quot;{quote.quote}&quot</h4>
 
     return (
       <div>
-        <h1> { this.state.content } </h1>
+        <h4 className='quote'> { '"A dream does not become reality through magic; it takes sweat, determination and hard work."   -Colin Powell' } </h4>
       </div>
     )
   }

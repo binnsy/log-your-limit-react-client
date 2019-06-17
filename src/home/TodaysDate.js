@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import Col from 'react-bootstrap/Col'
+import Quote from './MotivationalQuotes'
 
 class TodaysDate extends Component {
   constructor (props) {
@@ -51,7 +52,7 @@ class TodaysDate extends Component {
 
     let welcome = 'Hello!'
 
-    if (n >= 1 && n <= 12) {
+    if (n >= 1 && n < 12) {
       welcome = 'Good Morning!'
     } else if (n >= 12 && n <= 16) {
       welcome = 'Good Afternoon!'
@@ -97,10 +98,15 @@ class TodaysDate extends Component {
     //   greeting = 'Go to bed'
     // }
     return (
-      <div className="home-message">
-        <h1 className="welcome-message">{ welcomeMessage }</h1>
-        <h2>The current time is: </h2>
-        <h2 className="date">{this.state.time.toLocaleTimeString()}</h2>
+      <div>
+        <div className="home-message">
+          <h1 className="welcome-message">{ welcomeMessage }</h1>
+          <h2>The current time is: </h2>
+          <h2 className="date">{this.state.time.toLocaleTimeString()}</h2>
+        </div>
+        <div>
+          <Quote/>
+        </div>
       </div>
     )
   }

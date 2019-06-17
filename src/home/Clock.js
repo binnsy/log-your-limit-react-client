@@ -88,10 +88,10 @@ import moment from 'moment'
 
 class Clock extends React.Component {
     state = {
-      days: '',
-      hours: '',
-      minutes: '',
-      seconds: ''
+      days: undefined,
+      hours: undefined,
+      minutes: undefined,
+      seconds: undefined
     };
 
     componentDidMount () {
@@ -99,14 +99,12 @@ class Clock extends React.Component {
         const { timeTillDate, timeFormat } = this.props
         const then = moment(timeTillDate, timeFormat)
         const now = moment()
-        moment.locale('en')
         console.log(now)
         console.log(then)
         const countdown = moment(then - now)
         console.log(countdown)
         const days = countdown.format('D')
         const hours = countdown.format('HH')
-        // hours = moment(hours).add(2, 'hours').toDate()
         const minutes = countdown.format('mm')
         const seconds = countdown.format('ss')
         this.setState({ days, hours, minutes, seconds })

@@ -57,8 +57,8 @@ class Cal extends Component {
         for (let i = 0; i < events.length; i++) {
           events[i].start = moment.utc(events[i].start).add(1, 'day').toDate()
           events[i].end = moment.utc(events[i].end).add(1, 'day').toDate()
-          console.log(this.state.events)
-          console.log(events[i].start)
+          // console.log(this.state.events)
+          // console.log(events[i].start)
         }
         this.setState({ events: events })
         // events[i].start = moment.utc(events[i].start).toDate()
@@ -135,7 +135,7 @@ handleEventClick = () => {
 
 render () {
   const { events } = this.state
-  console.log(this.state.events)
+  // console.log(this.state.events)
   console.log(events)
   const { alert } = this.props
   moment.locale('en')
