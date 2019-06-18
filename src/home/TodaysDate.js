@@ -52,14 +52,16 @@ class TodaysDate extends Component {
 
     let welcome = 'Hello!'
 
-    if (n >= 1 && n < 12) {
+    if (n >= 4 && n < 12) {
       welcome = 'Good Morning!'
-    } else if (n >= 12 && n <= 16) {
+    } else if (n >= 12 && n < 16) {
       welcome = 'Good Afternoon!'
-    } else if (n >= 16 && n <= 21) {
+    } else if (n >= 16 && n < 21) {
       welcome = 'Good Evening!'
     } else if (n >= 21 && n <= 24) {
       welcome = 'Goodnight!'
+    } else if (n >= 1 && n < 4) {
+      welcome = 'Go To Bed!'
     }
 
     // if (time >= 5 && time <= 11) { welcome = 'Good Morning!' }
