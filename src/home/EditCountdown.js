@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import EditCountdownForm from './EditCountdownForm'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 class EditCountdown extends Component {
   constructor (props) {
@@ -13,8 +13,7 @@ class EditCountdown extends Component {
         id: '',
         title: '',
         date: ''
-      },
-      updated: false
+      }
     }
   }
 
@@ -105,12 +104,12 @@ class EditCountdown extends Component {
     }
 
     render () {
-      const { updated, countdown } = this.state
+      const { countdown } = this.state
       // console.log(countdown)
-      if (updated) {
-        return <Redirect
-          to={`/countdowns/${this.props.match.params.id}`} />
-      }
+      // if (updated) {
+      //   return <Redirect
+      //     to={`/countdowns/${this.props.match.params.id}`} />
+      // }
 
       return (
         <div>
@@ -126,4 +125,4 @@ class EditCountdown extends Component {
     }
 }
 
-export default EditCountdown
+export default withRouter(EditCountdown)

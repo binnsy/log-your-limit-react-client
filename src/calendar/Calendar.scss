@@ -52,7 +52,9 @@ app-body {
   flex-wrap: wrap;
   color: #283747;
 }
-
+.cal {
+  background-color: rgba(0, 0 , 0, .3);
+}
 .my-training {
   background-color: #2874A6;
 }
@@ -66,12 +68,12 @@ app-body {
 .App-title-plan {
   text-align: center;
   align-items: center;
-  color: #03B9A6;
+  color: #283747;
 }
 .App-title-my-cal {
   text-align: center;
   align-items: center;
-  color: #2874A6;
+  color: #283747;
 }
 .App-header {
   text-align: center;
@@ -79,10 +81,15 @@ app-body {
 .demo-app-top {
   margin: 0 0 3em;
 }
-
+// .icon {
+//   font-size: 70px;
+// }
 .demo-app-calendar {
   margin: 0 auto;
   max-width: 900px;
+}
+.workout-header {
+  font-size: 40px;
 }
 .one-workout {
     margin: 20px;
@@ -91,8 +98,8 @@ app-body {
     padding: 5px;
     width: 300px;
     box-shadow: 5px 10px #888888;
-    background-color: rgba(179, 204, 255, .3);
-    color: #283747;
+    background-color: rgba(9, 29, 51, 0.69);
+    color: white;
 }
 
 .add-workout {
@@ -101,4 +108,5 @@ app-body {
   margin: 5px;
   margin-top: 25px;
   color: #283747;
+  font-size: 30px;
 }

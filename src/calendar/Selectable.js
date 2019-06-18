@@ -66,7 +66,7 @@ class Selectable extends React.Component {
             <Button className="btn my-training" variant="secondary">Back to My Training Calendar</Button>
           </Link>
         </header>
-        <div style={{ height: 700 }}>
+        <div className="cal" style={{ height: 700 }}>
           <BigCalendar
             style={{ width: this.state.width }}
             // selectable

@@ -100,7 +100,7 @@ class TodaysDate extends Component {
     //   greeting = 'Go to bed'
     // }
     return (
-      <div>
+      <div className="home">
         <div className="home-message">
           <h1 className="welcome-message">{ welcomeMessage }</h1>
           <h2>The current time is: </h2>

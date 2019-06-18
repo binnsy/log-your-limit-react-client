@@ -85,7 +85,7 @@ class SignIn extends Component {
         </Form.Group>
 
         <Button className='btn-secondary' type="submit">Sign In</Button>
-        <Form.Text className="text-secondary mt-3">
+        <Form.Text className="form-text mt-3">
         If you need an account click here
           <Link to='/sign-up'>
             <Button className='btn-sm btn-secondary' type="submit">Sign up</Button>

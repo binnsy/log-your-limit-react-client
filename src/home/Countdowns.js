@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
@@ -39,7 +39,25 @@ class Countdowns extends Component {
     }
   }
 
-  async componentDidMount () {
+  componentDidMount () {
+    this.getCountdowns()
+  }
+
+destroy = (id) => {
+  axios({
+    method: 'DELETE',
+    url: `${apiUrl}/countdowns/${id}`,
+    headers: {
+      'Authorization': `Token token=${this.props.user.token}`
+    }
+  })
+    .then(() => this.props.alert('Your countdown has been deleted!', 'success'))
+    .then(this.getCountdowns)
+    .catch(() => {
+      this.props.alert('Whoops! Failed to delete your countdown. Please try again.', 'danger')
+    })
+}
+  getCountdowns = () => {
     // console.log(this.props.user)
     axios({
       method: 'GET',
@@ -82,7 +100,7 @@ class Countdowns extends Component {
           <h2 className="add-countdown" size="4x">Countdowns</h2>
         </div>
         <div className='add-countdown'>
-          <Button variant="success" href="#create-countdown">Add A Countdown</Button>
+          <Button variant="info" href="#create-countdown">Add A Countdown</Button>
         </div>
         <ListGroup>
           <div className='list-countdowns'>
@@ -93,9 +111,8 @@ class Countdowns extends Component {
                 <Clock
                   deadLine={countdown.date}
                 />
-                <Link to={'/countdowns/' + countdown.id}>
-                  <Button variant="secondary">See countdown</Button>
-                </Link>
+                <Button href={'#countdowns/' + countdown.id + '/edit'} variant="secondary">Edit</Button>
+                <Button onClick={() => this.destroy(countdown.id)} variant="danger">Delete Countdown</Button>
               </div>
             )) }
           </div>
@@ -104,5 +121,8 @@ class Countdowns extends Component {
     )
   }
 }
+// <Link to={'/countdowns/' + countdown.id}>
+//   <Button variant="secondary">See countdown</Button>
+// </Link>
 
 export default withRouter(Countdowns)

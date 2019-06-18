@@ -131,14 +131,14 @@ class LogWorkouts extends Component {
     return (
       <Fragment>
         <div className='add-workout'>
-          <h2 className="add-workout" size="4x">Workouts Logged</h2>
-          <li className="pv3 ph2 ma0 link grow add-workout">
-            <FontAwesomeIcon icon={faSwimmer} size="4x" />
-            <FontAwesomeIcon icon={faBiking} size="4x" />
-            <FontAwesomeIcon icon={faRunning} size="4x" />
+          <h2 className="workout-header" size="4x">Workouts Logged</h2>
+          <li className="pv3 ph2 ma0 link grow workout-fontawesome">
+            <FontAwesomeIcon className='icon' icon={faSwimmer} size="4x" />
+            <FontAwesomeIcon className='icon' icon={faBiking} size="4x" />
+            <FontAwesomeIcon className='icon' icon={faRunning} size="4x" />
           </li>
           <div>
-            <Button className='add-workout' variant="success" href="#create-workout">Add A Workout</Button>
+            <Button className='workout-btn' variant="info" href="#create-workout">Add A Workout</Button>
           </div>
         </div>
         <ListGroup>

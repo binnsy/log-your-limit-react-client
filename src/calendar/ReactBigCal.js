@@ -149,7 +149,7 @@ class Cal extends Component {
             <Button className="ironman-plan" variant="secondary">Ironman Training Plan</Button>
           </Link>
         </header>
-        <div style={{ height: 700 }}>
+        <div className="cal" style={{ height: 700 }}>
           <BigCalendar
             events={this.state.events}
             culture='en'
