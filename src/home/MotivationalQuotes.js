@@ -6,7 +6,7 @@ class Quote extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      content: ''
+      quote: this.getQuote()
     }
   }
 
@@ -21,22 +21,27 @@ class Quote extends Component {
     // console.log(randomNumber)
     // const newQuote = quotes[randomNumber].content
     // console.log(newQuote)
-    this.setState({ content: quotes })
+    const newQuote = () => this.setState({ quote: this.getQuote() })
+    setInterval(newQuote, 24000)
+    // this.setState({ content: quotes })
     // this.setState({ quotes })
     // setInterval(getQuotes, 10000)
+  }
+  getQuote =() => {
+    const random = (Math.random() * quotes.length) | 0
+    return quotes[random]
   }
   //
   // getQuote = () => {
   //
 
   render () {
-    // const { quote } = this.state
+    const { quote } = this.state
     // console.log(quote)
-    // const displayQuote = <h4>&quot;{quote.quote}&quot</h4>
 
     return (
       <div>
-        <h4 className='quote'> { '"A dream does not become reality through magic; it takes sweat, determination and hard work."   -Colin Powell' } </h4>
+        <h4 className='quote'> { quote.quote } </h4>
       </div>
     )
   }

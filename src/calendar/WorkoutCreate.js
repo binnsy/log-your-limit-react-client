@@ -165,7 +165,7 @@ class LogWorkout extends Component {
             localizer={localizer}
             value={start || ''}
             name="start"
-            placeholder="YYYY-MM-DD"
+            placeholder="getDate()"
             onChange={this.handleChange}
           />
         </Form.Group>
