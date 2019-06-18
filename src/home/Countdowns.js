@@ -97,7 +97,7 @@ destroy = (id) => {
     return (
       <Fragment>
         <div className='add-countdown'>
-          <h2 className="add-countdown" size="4x">Countdowns</h2>
+          <h2 className="add-countdown" size="4x">Countdown to Race Day</h2>
         </div>
         <div className='add-countdown'>
           <Button variant="info" href="#create-countdown">Add A Countdown</Button>
@@ -106,7 +106,7 @@ destroy = (id) => {
           <div className='list-countdowns'>
             { user && countdowns.map(countdown => (
               <div className='one-countdown' key={countdown.id}>
-                <span className="h5 d-block">{countdown.title}</span>
+                <span className="h3 d-block">{countdown.title}</span>
                 <span className="h5 d-block">{countdown.date}</span>
                 <Clock
                   deadLine={countdown.date}

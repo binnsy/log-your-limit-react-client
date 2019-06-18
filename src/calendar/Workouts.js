@@ -145,7 +145,7 @@ class LogWorkouts extends Component {
           <div className='list-workouts'>
             { user && workouts.map(workout => (
               <div className='one-workout' key={workout.id}>
-                <span className="h5 d-block">{this.Capitalize(workout.title)}</span>
+                <span className="h4 d-block">{this.Capitalize(workout.title)}</span>
                 <span className="h5 d-block">{this.FontAwesome(workout.title)}</span>
                 <span className="d-block">{workout.start}</span>
                 <Link to={'/workouts/' + workout.id}>
