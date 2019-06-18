@@ -87,6 +87,7 @@ class Workout extends Component {
         })
       })
   }
+
   // })
   // .catch(console.error)
   //   // .then(res => {
