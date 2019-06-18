@@ -34,12 +34,26 @@ class Clock extends Component {
   }
 
   render () {
+    const days = this.state.Days
+    const hours = this.state.hours
+    const minutes = this.state.minutes
+    const seconds = this.state.Seconds
+
+    let message = ''
+
+    if (days && hours && minutes && seconds === 0) {
+      clearInterval(this.state.deadline)
+      message = 'Zero Days!'
+    }
+    const endCountdownmessage = `${message}`
+
     return (
       <div>
         <div className="Clock-days">{ this.leading0(this.state.days) } Days</div>
         <div className="Clock-hours">{ this.leading0(this.state.hours) } hours</div>
         <div className="Clock-minutes">{ this.leading0(this.state.minutes) } minutes</div>
         <div className="Clock-seconds">{ this.leading0(this.state.seconds) } seconds</div>
+        <h3 className="message">{ endCountdownmessage }</h3>
       </div>
     )
   }
