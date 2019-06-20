@@ -40,7 +40,7 @@ class Selectable extends React.Component {
     // console.log(event)
     // const backgroundColor = '#' + event.hexColor
     const style = {
-      backgroundColor: '#03B9A6',
+      backgroundColor: '#05C4B0',
       // borderRadius: '0px',
       opacity: 0.8
       // color: 'black',
