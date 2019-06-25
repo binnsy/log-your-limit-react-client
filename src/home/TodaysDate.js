@@ -6,25 +6,8 @@ class TodaysDate extends Component {
   constructor (props) {
     super(props)
 
-    // const today = new Date()
-    // console.log(today)
-
-    // let date = new Date().getDate()
-    // console.log(date)
-    // const month = new Date().getMonth() + 1
-    // const year = new Date().getFullYear()
-    // const hours = new Date().getHours()
-    // console.log(hours)
-    // const min = new Date().getMinutes()
-    // const sec = new Date().getSeconds()
-    // date = (month + '-' + date + '-' + year)
-    // console.log(date)
-    // const now = (hours + ':' + min + ':' + sec)
-    // console.log(now)
-
     this.state = {
       time: new Date()
-      // date: date
     }
   }
   componentDidMount () {
@@ -43,11 +26,7 @@ class TodaysDate extends Component {
 
   render () {
     const time = this.state.time
-    // console.log(time)
-    // console.log(this.state.time.toLocaleTimeString())
-    // 6:29:53 PM
-    //   function myFunction() {
-    // let d = new Date()
+
     const n = time.getHours()
 
     let welcome = 'Hello!'
@@ -64,41 +43,8 @@ class TodaysDate extends Component {
       welcome = 'Go To Bed!'
     }
 
-    // if (time >= 5 && time <= 11) { welcome = 'Good Morning!' }
-    // if (time >= 12 && time <= 16) { welcome = 'Good Afternoon!' }
-    // if (time >= 17 && time <= 19) { welcome = 'Good Evening!' }
-    // if (time >= 20 && time <= 24) { welcome = 'Goodnight!' }
-    // if (time > 20 && time < 24) { welcome = 'Goodnight!' }
-    // if (time < 19 || time > 17) { welcome = 'Good Evening' }
-    // if (time >= 0 && time <= 4) { welcome = 'Go to bed!' }
-
     const welcomeMessage = `${welcome}`
 
-    // if (hours >= 4 && hours <= 11 && timeOfDay === 'AM') {
-    //   // console.log('good morning')
-    //   greeting = 'Good morning!'
-    // } else if (hours <= 4 && timeOfDay === 'PM') {
-    //   // console.log('good afternoon')
-    //   greeting = 'Good afternoon!'
-    // } else if (hours === 12 && timeOfDay === 'PM') {
-    //   // console.log('good afternoon')
-    //   greeting = 'Good afternoon!'
-    // }
-    // if (hours <= 8 && hours >= 5 && timeOfDay === 'PM') {
-    //   // console.log('good evening')
-    //   greeting = 'Good evening'
-    // }
-    // if (hours >= 9 && hours <= 11 && timeOfDay === 'PM') {
-    //   // console.log('good night')
-    //   greeting = 'Good night'
-    // }
-    // if (hours === 12 && timeOfDay === 'AM') {
-    //   // console.log('Go to bed')
-    //   greeting = 'Go to bed'
-    // } else if (hours >= 1 && hours <= 3 && timeOfDay === 'AM') {
-    //   // console.log('go to bed')
-    //   greeting = 'Go to bed'
-    // }
     return (
       <div className="home">
         <div className="home-message">
@@ -113,28 +59,5 @@ class TodaysDate extends Component {
     )
   }
 }
-//   componentDidMount () {
-//     // const curTime = () => this.setState
-//     setInterval(() => {
-//       this.setState({
-//         time: new Date(),
-//         date: date
-//       }, 1000)
-//     })
-//   }
-//
-//   render () {
-//     return (
-//       <Col className="text-center hi">
-//         <div className="home">
-//           <div className="today">
-//             <p>Today is</p>
-//             <div>{this.state.timetoLocaleTimeString()}</div>
-//           </div>
-//         </div>
-//       </Col>
-//     )
-//   }
-// }
 
 export default TodaysDate

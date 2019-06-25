@@ -5,32 +5,14 @@ import apiUrl from '../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 import Clock from './Clock2'
-// import SampleClass from './ReactClock'
-// import moment-countdown from 'moment-countdown'
-// import Cal from './ReactBigCal'
-// import { IconName } from '@fortawesome/fontawesome-svg-core'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
-// import '../calendar/Calendar.scss'
 import './Home.scss'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-// import Layout from '../Layout'
-// import LogWorkout from './calendar/WorkoutCreate'
-// import Workout from './calendar/Workout'
-// import LogWorkoutEdit from './calendar/WorkoutEdit'
-// import Countdown from './home/Countdown'
-// <Route exact path='/countdown' component={Countdown}/>
-// <Route exact path="/workouts" component={LogWorkouts}/>
-// <Route exact path="/create-workout" component={LogWorkout}/>
-// <Route exact path="/workouts/:id" component={Workout}/>
-// <Route exact path="/workouts/:id/edit" component={LogWorkoutEdit}/>
 
 moment.locale('en')
 
 class Countdowns extends Component {
-  // props not being used
   constructor (props) {
     super(props)
 
@@ -77,7 +59,6 @@ destroy = (id) => {
           countdowns[i].date = moment(countdowns[i].date).format('LL')
           // console.log(countdowns)
           // console.log(countdowns[i].date)
-          // console.log()
         }
 
         this.setState({ countdowns: countdowns })
@@ -92,8 +73,6 @@ destroy = (id) => {
     const { user } = this.props
     // console.log(countdowns)
     moment.locale('en')
-    // console.log({ countdowns })
-    // movie.year ? movie.year : 'Unknown'
     return (
       <Fragment>
         <div className='add-countdown'>
@@ -121,8 +100,5 @@ destroy = (id) => {
     )
   }
 }
-// <Link to={'/countdowns/' + countdown.id}>
-//   <Button variant="secondary">See countdown</Button>
-// </Link>
 
 export default withRouter(Countdowns)

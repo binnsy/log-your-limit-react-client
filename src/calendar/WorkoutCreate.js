@@ -6,17 +6,9 @@ import BigCalendar from 'react-big-calendar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import moment from 'moment'
-
-// import Layout from '../Layout'
-// import LogWorkoutForm from './LogWorkoutForm'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
 moment.locale('en')
-// import { Redirect } from 'react-router-dom'
-// console.log(moment(Date.now()))
-
-// const doo = new Date()
-// console.log('doo', doo)
 
 class LogWorkout extends Component {
   constructor () {
@@ -35,10 +27,6 @@ class LogWorkout extends Component {
       createdWorkout: false
     }
   }
-  //
-  // componentDidMount () {
-  //
-  // }
 
   handleSubmit = (event) => {
     // console.log('submitted', event)
@@ -101,14 +89,7 @@ class LogWorkout extends Component {
 
   render () {
     const { title, description, distance, time, start, end } = this.state
-    // const { isSubmitted } = this.props
-    // if (isSubmitted) {
-    //   return <Redirect to='/workouts' />
-    // }
-    // if (createdWorkout === true) {
-    //   return <Redirect
-    //     to={'/workouts/'} />
-    // }
+
     moment.locale('en')
     const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 

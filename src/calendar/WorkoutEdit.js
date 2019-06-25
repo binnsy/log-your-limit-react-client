@@ -32,8 +32,6 @@ class LogWorkoutEdit extends Component {
         }
       }
     }
-    // const response = await
-    // axios(`${apiUrl}/workouts/${this.props.match.params.id}`)
     await axios({
       method: 'GET',
       url: `${apiUrl}/workouts/${this.props.match.params.id}`,
@@ -53,12 +51,6 @@ class LogWorkoutEdit extends Component {
     // if (response.error) {
     //   console.erroe(response.error)
     // } else {
-
-  // }
-  // .then(res => {
-  //   this.setState({ movie: res.data.movie })
-  // })
-  // .catch(console.error)
   }
 
   resetForm = () => this.setState({

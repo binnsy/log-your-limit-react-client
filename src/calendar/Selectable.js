@@ -7,8 +7,6 @@ import './Calendar.scss'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-// import LogRun from './LogRun'
-
 const propTypes = {}
 
 class Selectable extends React.Component {
@@ -38,7 +36,6 @@ class Selectable extends React.Component {
 
   eventStyleGetter (event, start, end, isSelected) {
     // console.log(event)
-    // const backgroundColor = '#' + event.hexColor
     const style = {
       backgroundColor: '#05C4B0',
       // borderRadius: '0px',
@@ -85,8 +82,6 @@ class Selectable extends React.Component {
     )
   }
 }
-//
-// onSelectEvent={event => alert(event.title, event.start, event.end)}
 // onSelectSlot={this.handleSelect}
 
 Selectable.propTypes = propTypes

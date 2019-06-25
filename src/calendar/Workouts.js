@@ -4,23 +4,9 @@ import axios from 'axios'
 import apiUrl from '../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-// import Cal from './ReactBigCal'
-// import { IconName } from '@fortawesome/fontawesome-svg-core'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import './Calendar.scss'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-// import Layout from '../Layout'
-// import LogWorkout from './calendar/WorkoutCreate'
-// import Workout from './calendar/Workout'
-// import LogWorkoutEdit from './calendar/WorkoutEdit'
-// import Countdown from './home/Countdown'
-// <Route exact path='/countdown' component={Countdown}/>
-// <Route exact path="/workouts" component={LogWorkouts}/>
-// <Route exact path="/create-workout" component={LogWorkout}/>
-// <Route exact path="/workouts/:id" component={Workout}/>
-// <Route exact path="/workouts/:id/edit" component={LogWorkoutEdit}/>
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -49,7 +35,6 @@ library.add(
 )
 
 class LogWorkouts extends Component {
-  // props not being used
   constructor (props) {
     super(props)
 
@@ -67,9 +52,6 @@ class LogWorkouts extends Component {
         'Authorization': `Token token=${this.props.user.token}`
       }
     })
-
-    // this.setState({ workouts: response.data.workouts })
-
       .then(response => {
         const workouts = response.data.workouts
         for (let i = 0; i < workouts.length; i++) {
@@ -109,19 +91,6 @@ class LogWorkouts extends Component {
       return <FontAwesomeIcon icon={faHeartbeat} size="2x" />
     }
   }
-  //   if (str === 'Run') {
-  //     console.log(str)
-  //     return <i className="far fa-clock">Run</i>
-  //     // <FontAwesomeIcon icon={faRunning} size="4x" />
-  //   }
-  // }
-  // const editNull = (response) => {
-  //   for (const key in response.data.workout) {
-  //     if (response.data.workout[key] === null) {
-  //       response.data.workout[key] = ''
-  //     }
-  //   }
-  // }
 
   render () {
     const { workouts } = this.state
@@ -159,16 +128,5 @@ class LogWorkouts extends Component {
     )
   }
 }
-// <div>
-//   <p>All the workouts</p>
-//   <ul>
-//     {workouts}
-//   </ul>
-// </div>
 
-// const workouts = this.state.workouts.map(workout => (
-//   <li key={workout.id}>
-//     <Link to={'/workouts/' + workout.id}>{workout.title ? workout.title : 'Unknown Title'}</Link>
-//   </li>
-// ))
 export default LogWorkouts

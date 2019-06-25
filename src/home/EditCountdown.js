@@ -25,8 +25,7 @@ class EditCountdown extends Component {
         }
       }
     }
-    // const response = await
-    // axios(`${apiUrl}/workouts/${this.props.match.params.id}`)
+
     await axios({
       method: 'GET',
       url: `${apiUrl}/countdowns/${this.props.match.params.id}`,
@@ -43,27 +42,7 @@ class EditCountdown extends Component {
           countdown: response.data.countdown
         })
       )
-    // if (response.error) {
-    //   console.erroe(response.error)
-    // } else {
-
-  // }
-  // .then(res => {
-  //   this.setState({ movie: res.data.movie })
-  // })
-  // .catch(console.error)
   }
-  //
-  // resetForm = () => this.setState({
-  //   id: '',
-  //   title: '',
-  //   description: '',
-  //   date: '',
-  //   start: '',
-  //   end: '',
-  //   distance: '',
-  //   time: ''
-  // })
 
   handleChange = (event) => {
     // access and update state
@@ -105,11 +84,6 @@ class EditCountdown extends Component {
 
     render () {
       const { countdown } = this.state
-      // console.log(countdown)
-      // if (updated) {
-      //   return <Redirect
-      //     to={`/countdowns/${this.props.match.params.id}`} />
-      // }
 
       return (
         <div>

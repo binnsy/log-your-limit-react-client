@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
-// import Card from 'react-bootstrap/Card'
-// import CardDeck from 'react-bootstrap/CardDeck'
+
 import Button from 'react-bootstrap/Button'
 import moment from 'moment'
-// import Layout from '../Layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import {
@@ -52,21 +50,8 @@ class Workout extends Component {
     })
     this.setState({ workout: response.data.workout })
   }
-  //   axios({
-  //     url: `${apiUrl}/workouts/${this.props.match.params.id}`,
-  //     headers: {
-  //       'Authorization': `Token token=${this.props.user.token}`
-  //     }
-  //       .then(response => {
-  //         this.setState({ workout: response.data.workout })
-  //       })
-  //       .catch(console.error)
-  //   })
-  // }
 
   destroy = async () => {
-    // console.log('trying to delete')
-    // axios.delete(url, { data: { foo: "bar" } });
     await axios({
       method: 'DELETE',
       url: `${apiUrl}/workouts/${this.props.match.params.id}`,
@@ -74,8 +59,7 @@ class Workout extends Component {
         'Authorization': `Token token=${this.props.user.token}`
       }
     })
-    // await axios.delete(`${apiUrl}/workouts/${this.props.match.params.id}`)
-    // this.setState({ deleted: true })
+
       .then(response =>
         this.setState({ deleted: true
         }))
@@ -95,19 +79,6 @@ class Workout extends Component {
   //     .catch(console.error)
   // }
 
-  // handleDelete = (id) => {
-  //   axios({
-  //     url: `${apiUrl}/workouts/${id}`,
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Authorization': `Token token=${this.props.user.token}`
-  //     }
-  //   })
-  //     .then(response => {
-  //       this.setState({ workouts: response.data.workouts })
-  //     })
-  //     .catch(console.error)
-  // }
   StartDateFormat (workout) {
     return moment(workout.start).format('LL')
   }
@@ -188,5 +159,4 @@ class Workout extends Component {
     )
   }
 }
-// <Button variant="danger" onClick={() => this.handleDelete(workout.id)}>Delete Workout</Button>
 export default Workout
