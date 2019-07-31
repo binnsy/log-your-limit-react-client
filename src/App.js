@@ -103,7 +103,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/workouts/:id/edit' render={({ match }) => (
             <LogWorkoutEdit match={match} alert={this.alert} user={user} />
           )} />
-          <Route path='/home' user={user} render={() => (
+          <AuthenticatedRoute user={user} exact path='/home' render={() => (
             <TodaysDate alert={this.alert} user={user} />
           )} />
           <Route path='/sign-up' render={() => (

@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 const LogWorkoutForm = ({ workout, handleSubmit, handleChange, cancelPath }) => (
 
-  <Form className="form form-color" onSubmit={handleSubmit} >
+  <Form className="form edit form-color" onSubmit={handleSubmit} >
     <h2>Edit Workout</h2>
     <Form.Group controlId="title">
       <Form.Label>Workout Title</Form.Label>

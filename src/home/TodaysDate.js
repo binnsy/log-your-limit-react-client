@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import Quote from './MotivationalQuotes'
 
 class TodaysDate extends Component {
@@ -11,7 +12,7 @@ class TodaysDate extends Component {
     }
   }
   componentDidMount () {
-    this.timeCount = setInterval(() => this.tick(), 1000)
+    this.timeCount = setInterval(() => this.tick(), 10000)
   }
 
   componentWillUnmount () {
@@ -54,6 +55,9 @@ class TodaysDate extends Component {
         </div>
         <div>
           <Quote/>
+        </div>
+        <div className="add-workout">
+          <Button className='workout-btn' variant="info" href="#create-workout">Add Todays Workout</Button>
         </div>
       </div>
     )

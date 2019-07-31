@@ -10,6 +10,7 @@ const authenticatedOptions = (
     <Nav.Link className="header" href="#workouts">Workouts</Nav.Link>
     <Nav.Link className="header" href="#calendar">Calendar</Nav.Link>
     <Nav.Link className="header" href="#countdowns">My Countdown</Nav.Link>
+    <Nav.Link className="header" href="#home">Home</Nav.Link>
 
   </React.Fragment>
 )
@@ -23,7 +24,6 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <React.Fragment>
-    <Nav.Link className="header" href="#home">Home</Nav.Link>
   </React.Fragment>
 )
 

@@ -1,11 +1,18 @@
 .btn {
   margin: 3px;
 }
-
-// .form {
-//   background-color: rgba(179, 204, 255, .3);
-// }
-
+.edit, .create {
+  font-size: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: solid white;
+  border-radius: 10px;
+  padding: 25px;
+  width: 500px;
+  box-shadow: 5px 10px #888888;
+  background-color: rgba(9, 29, 51, 0.69);
+  color: white;
+}
 .card-text {
   font-size: 20px;
 }
@@ -17,10 +24,13 @@
   border-radius: 10px;
   padding: 5px;
   width: 300px;
-  box-shadow: 5px 10px #888888;
+  // box-shadow: 5px 10px #888888;
   align-content: center;
-  background-color: rgba(179, 204, 255, .3);
-  color: #283747;
+  // background-color: rgba(179, 204, 255, .3);
+  // color: #283747;
+  box-shadow: 5px 10px #888888;
+  background-color: rgba(9, 29, 51, 0.69);
+  color: white;
 }
 .rbc-calendar {
   height: 600px;
@@ -29,17 +39,17 @@ app-body {
   margin-top: 10px;
 }
 
-.form-color {
-  background-color: rgba(179, 204, 255, .3);
+// .form-color {
+//   background-color: rgba(179, 204, 255, .3);
 
-}
+// }
 .list-group-item {
   margin: 5px;
   // background-color: rgba(0,0,0,0.5);
 }
-.form {
-  color: #283747;
-}
+// .form {
+//   color: #283747;
+// }
 // .add-workout {
 //   align-items: center;
 // }
@@ -89,14 +99,14 @@ app-body {
   font-size: 40px;
 }
 .one-workout {
-    margin: 20px;
-    border: solid white;
-    border-radius: 10px;
-    padding: 5px;
-    width: 300px;
-    box-shadow: 5px 10px #888888;
-    background-color: rgba(9, 29, 51, 0.69);
-    color: white;
+  margin: 20px;
+  border: solid white;
+  border-radius: 10px;
+  padding: 5px;
+  width: 300px;
+  box-shadow: 5px 10px #888888;
+  background-color: rgba(9, 29, 51, 0.69);
+  color: white;
 }
 
 .add-workout {

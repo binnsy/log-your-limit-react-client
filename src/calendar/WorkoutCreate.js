@@ -94,7 +94,7 @@ class LogWorkout extends Component {
     const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 
     return (
-      <Form className="form form-color" onSubmit={this.handleSubmit} >
+      <Form className="form create form-color" onSubmit={this.handleSubmit} >
         <h2>Create Workout</h2>
         <Form.Group controlId="workoutTitle">
           <Form.Label>Workout Title</Form.Label>
@@ -146,7 +146,7 @@ class LogWorkout extends Component {
             localizer={localizer}
             value={start || ''}
             name="start"
-            placeholder="getDate()"
+            placeholder="YYYY-MM-DD"
             onChange={this.handleChange}
           />
         </Form.Group>

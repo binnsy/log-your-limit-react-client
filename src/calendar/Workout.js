@@ -79,11 +79,13 @@ class Workout extends Component {
   //     .catch(console.error)
   // }
 
-  StartDateFormat (workout) {
-    return moment(workout.start).format('LL')
+  StartDateFormat (response) {
+    console.log(response, 'workout')
+    return moment(response).format('LL')
   }
   EndDateFormat (workout) {
-    return moment(workout.end).format('LL')
+    console.log(workout, 'end date')
+    return moment(workout).format('LL')
   }
 
   Capitalize (str) {
@@ -115,6 +117,7 @@ class Workout extends Component {
 
   render () {
     const { workout, deleted } = this.state
+    console.log(this.state, 'this state')
 
     if (!workout) {
       return (
@@ -136,12 +139,12 @@ class Workout extends Component {
         <span className="h5 d-block"><strong>{this.FontAwesome(workout.title)}</strong></span>
         <div>
           <div>
-            <p>Date: {this.StartDateFormat(workout.start)}</p>
-            <p>Description: {workout.description ? workout.description : ' - '}</p>
-            <p>Start date: {this.StartDateFormat(workout.start)}</p>
-            <p>End date: {this.EndDateFormat(workout.end)}</p>
-            <p>Distance: {workout.distance ? workout.distance : ' - '}</p>
-            <p>Time: {workout.time ? workout.time : ' - '}</p>
+            <p>Date: {this.StartDateFormat(this.state.workout.start)}</p>
+            <p>Description: {this.state.workout.description ? this.state.workout.description : ' - '}</p>
+            <p>Start date: {this.StartDateFormat(this.state.workout.start)}</p>
+            <p>End date: {this.EndDateFormat(this.state.workout.end)}</p>
+            <p>Distance: {this.state.workout.distance ? this.state.workout.distance : ' - '}</p>
+            <p>Time: {this.state.workout.time ? this.state.workout.time : ' - '}</p>
           </div>
           <Link to='/workouts'>
             <Button variant="secondary">Back to all workouts</Button>

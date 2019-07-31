@@ -49,7 +49,7 @@ class SignIn extends Component {
     signIn(this.state)
       .then(res => setUser(res.data.user))
       .then(() => alert(messages.signInSuccess, 'success'))
-      .then(() => history.push('/'))
+      .then(() => history.push('/home'))
       .catch(() => {
         this.setState({ nickname: '', mail: '', password: '' })
         alert(messages.signInFailure, 'danger')
